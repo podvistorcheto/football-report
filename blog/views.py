@@ -8,3 +8,15 @@ def home(request):
 
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
+
+
+def subscribe(request):
+    return render(request, 'blog/subscribe.html', {'title': 'Subscribe'})
+
+
+def blogpage(request):
+    return render(request, 'blog/blogpage.html', {'title': 'Blog'})
+
+
+def newsletter(request):
+    return render(request, 'blog/newsletter.html', {'title': 'Blog'})
