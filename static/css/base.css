@@ -18,17 +18,17 @@ body {
 }
 
 .carousel-image-1 {
-  background: url('../media/image1.jpg');
+  background: url('../pics/image1.jpg');
   background-size: cover;
 }
 
 .carousel-image-2 {
-  background: url('../media/image2.jpg');
+  background: url('../pics/image2.jpg');
   background-size: cover;
 }
 
 .carousel-image-3 {
-  background: url('../media/image3.jpg');
+  background: url('../pics/image3.jpg');
   background-size: cover;
 }
 
@@ -39,7 +39,7 @@ body {
 #home-heading {
   position: relative;
   min-height: 200px;
-  background: url('../media/lights.jpg');
+  background: url('../pics/lights.jpg');
   background-attachment: fixed;
   background-repeat: no-repeat;
   text-align: center;
@@ -58,7 +58,7 @@ body {
 #video-play {
   position: relative;
   min-height: 200px;
-  background: url('../media/media.jpg');
+  background: url('../pics/media.jpg');
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: 0 -300px;
@@ -81,7 +81,7 @@ body {
 
 #page-header {
   height: 200px;
-  background: url('../media/image1.jpg');
+  background: url('../pics/image1.jpg');
   background-position: 0 -360px;
   background-attachment: fixed;
   color: #fff;
@@ -112,4 +112,24 @@ body {
   color: #fff;
 }
 
-/* overlay for template inheritance */
+/* profile page styling */
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+  color: rgb(70, 68, 68);
+}

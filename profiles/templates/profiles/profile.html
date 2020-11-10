@@ -6,10 +6,18 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 m-auto text-center">
-          <h1>My Articles</h1>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas, temporibus?</p>
+		<div class="content-section">
+			<div class="media">
+				<img class="rounded-circle account-img" src="{{MEDIA_URL}}{{ user.profile.image.url }}">
+				<div class="media-body">
+					<h2 class="account-heading">{{ user.username }}</h2>
+					<p class="text-secondary">{{ user.email }}</p>
+				</div>
+			</div>
+          <p></p>
         </div>
       </div>
+    </div>
     </div>
   </header>
 {% endblock %}
@@ -19,6 +27,7 @@
         <div class="row">
             <div class="col">
                 <hr>
+                
             </div>
         </div>
     </div>
