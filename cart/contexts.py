@@ -14,8 +14,8 @@ def cart_contents(request):
     subscription_count = 0
     
     for id, quantity in cart.items():
-        Subscription = get_object_or_404(Donation, pk=id)
-        total += quantity * donation.price
+        subscription = get_object_or_404(Subscription, pk=id)
+        total += quantity * subscription.price
         subscription_count += quantity
         cart_items.append({'id': id, 'quantity': quantity, 'subscription': subscription})
     

@@ -7,8 +7,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 m-auto text-center">
-          <h1>Subscription Card</h1>
-          <p>Here you can choose your subscription plan</p>
+          <h1>Subscription Cart</h1>
+
         </div>
       </div>
     </div>
@@ -16,14 +16,12 @@
 {% endblock %}
 
 {% block content %}
-  <!-- CARD SECTION -->
-     <div class="container mt-2 mb-2">
-    <!-- looping through donation products and displaying-->
-  <!-- SUBSCRIPTIONS SECTION -->
+  <!-- PROCEED TO CHECKOUT SECTION -->
   <section id="services" class="py-5">
     <div class="container">
+    <p>{{ subscription_count }} item(s) at a total cost of: &euro;{{ total }}</p>
+    {% for item in cart_items %}
       <div class="row">
-      {% for item in subscriptions %}
         <div class="col-md-4">
           <div class="card text-center">
             <div class="card-header bg-dark text-white">
@@ -50,10 +48,10 @@
                 </li>
               </ul>
               {% if user.is_authenticated %}
-                            <a href="#" class="btn btn-danger btn-block mt-2">Get It</a>
-                            {% else %}
-                            <a href="#" class="btn btn-danger btn-block mt-2">Add to Card ( You must be logged In)</a>
-                            {% endif %}
+                    <a class="btn btn-success btn-block mt-2" href="#" title="Checkout">Proceed to checkout!</a>
+              {% else %}
+                    <a href="#" class="btn btn-danger btn-block mt-2">Add to Card ( You must be logged In)</a>
+              {% endif %}
             </div>
           </div>
           <hr>

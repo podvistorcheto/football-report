@@ -10,6 +10,7 @@ def view_cart(request):
     }
     return render(request, "cart/cart.html", context)
 
+
 @login_required
 def add_to_cart(request, id):
     '''Add a donation item to the cart'''
