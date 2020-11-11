@@ -18,6 +18,7 @@ from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from subscription import views as subscription_view
 from profiles import views as user_views
 
 
@@ -26,6 +27,7 @@ urlpatterns = [
     path('', include('blog.urls')),
     path('accounts/', include('allauth.urls')),
     path('profile/', include('profiles.urls')),
+    path('subscription/', subscription_view.subscriptions, name='subscription'),
     path('card/', include('card.urls')),
 ]
 

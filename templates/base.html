@@ -65,6 +65,9 @@
           <li class="nav-item">
             <a href="{% url 'blogpage' %}" class="nav-link">Reports</a>
           </li>
+          <li class="nav-item">
+            <a href="{% url 'subscription' %}" class="nav-link">Subscribe</a>
+          </li>
           {% if user.is_authenticated %}
           <li class="nav-item">
             <a href="{% url 'profile' %}" class="nav-link">My profile</a>
@@ -74,7 +77,7 @@
           </li>
           {% else %}
           <li class="nav-item">
-            <a href="{% url 'view_card' %}" class="nav-link">Subscribe</a>
+            <a href="{% url 'subscription' %}" class="nav-link">Subscribe</a>
           </li>
           <li class="nav-item">
             <a href="{% url 'account_login' %}" class="nav-link">Login</a>

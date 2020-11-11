@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+   <!-- SHOW SLIDER -->
+    <header id="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 m-auto text-center">
+          <h1>Our Subscrptions</h1>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas, temporibus?</p>
+        </div>
+      </div>
+    </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+  <!-- SUBSCRIPTIONS SECTION -->
+  <section id="services" class="py-5">
+    <div class="container">
+    <!--{% for item in subscrptions %}
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card text-center">
+            <div class="card-header bg-dark text-white">
+              <h3>{{ item.name }}</h3>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">&euro;{{ item.price }}</h4>
+              <p class="card-text">{{ item.description}}</p>
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <i class="fas fa-check"></i> Feature One
+                </li>
+                <li class="list-group-item">
+                  <i class="fas fa-check"></i> Feature Two
+                </li>
+                <li class="list-group-item">
+                  <i class="fas fa-check"></i> Feature Three
+                </li>
+                <li class="list-group-item">
+                  <i class="fas fa-check"></i> Feature Four
+                </li>
+                <li class="list-group-item">
+                  <i class="fas fa-check"></i> Feature Five
+                </li>
+              </ul>
+              {% if user.is_authenticated %}
+                            <a href="#" class="btn btn-danger btn-block mt-2">Get It</a>
+                            {% else %}
+                            <small>Add to Card ( You must be logged In)</small>
+                            {% endif %}
+            </div>
+            <div class="card-footer text-muted">
+              1 Month Plan
+            </div>
+          </div>
+        </div>
+      </div>
+       {% endfor %} -->
+    </div>
+  </section>
+{% endblock %}
