@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+   <!-- SHOW SLIDER -->
+    <header id="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 m-auto text-center">
+          <h1>Subscription Card</h1>
+          <p>Here you can choose your subscription plan</p>
+        </div>
+      </div>
+    </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+  <!-- CARD SECTION -->
+     <div class="container mb-2">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="logo-font mb-4">Subscription Card</h2>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                {% if bag_items %}
+                    <div class="table-responsive rounded"></div>
+                {% else %}
+                    <p class="lead mb-5">Your subscription card is empty.</p>
+                    <a href="#" class="btn btn-outline-black rounded-0 btn-lg">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="text-uppercase">Change card</span>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+  <!-- FAQ -->
+ 
+
+ 
+{% endblock %}
