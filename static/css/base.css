@@ -188,3 +188,20 @@ body {
 .allauth-form-inner-content a {
 	color: #17a2b8; /* text-info */
 }
+
+/* --- styling the toasts --- */
+
+.message-container {
+    position: fixed;
+    top: 60px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 15px;
+}

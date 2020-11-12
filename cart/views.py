@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from subscription.models import Subscription
 
 
 @login_required
 def view_cart(request):
-    '''A View that renders the cart contents page'''
+    '''a view that renders the cart contents page'''
     context = {
         'title':'Cart'
     }
@@ -13,10 +15,12 @@ def view_cart(request):
 
 @login_required
 def add_to_cart(request, id):
-    '''Add a donation item to the cart'''
+    ''' a method to add a subscription item to the cart'''
+    subscription = Subscription.objects.get(pk=id)
     quantity = 1
     cart = request.session.get('cart', {})
     cart[id] = cart.get(id, quantity)
+    messages.error(request, f'Added {subscription.name} to your cart')
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
