@@ -7,4 +7,5 @@ class PackageForm(forms.ModelForm):
         model = Package
         fields = (
             'full_name',
+            'email',
             'phone_number',)

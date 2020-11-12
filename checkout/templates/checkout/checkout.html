@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+   <!-- PAGE HEADER TEMPLATE -->
+    <header id="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 m-auto text-center">
+          <h1>Checkout page</h1>
+
+        </div>
+      </div>
+    </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+  <!-- CHECKOUT PAGE  -->
+<div class="container">
+<div class="row">
+	<div class="col-12 col-lg-6 order-lg-last">
+    <p class="text-muted">Purchase Summary</p>
+		<div class="row">
+			<div class="col-7 offset-2">
+				<p class="mb-1 mt-0 small text-muted">Purchase</p>
+			</div>
+			<div class="col-3 text-right">
+				<p class="mb-1 mt-0 small text-muted">Price</p>
+			</div>
+		</div>
+        {% for item in cart_items %}
+        <div class="row">
+            <div class="col-2 mb-1">
+                <a href="{% url 'subscription' %}">
+                </a>
+            </div>
+                <div class="col-7">
+                    <p class="my-0"><strong>{{ item.subscription.name }}</strong></p>
+                    <p class="my-0 small text-muted">{{ item.subscription.description }}</p>               
+                </div>
+                        <div class="col-3 text-right">
+                        <p class="my-0 small text-muted">{{ item.quantity }}</p> 
+                        <p class="my-0 small text-muted">&euro;{{ item.subscription.price }}</p>
+                        </div>
+                    </div>							
+        {% endfor %}
+        <hr class="my=0">
+        <div class="row text-black text-right">
+                    <div class="col-7 offset-2">
+                        <p class="my-0">Total Price:</p>
+                    </div>
+                    <div class="col-3">
+                        <p class="my-0"><strong>{{ subscription_count }}&euro;{{ total }}</strong></p>
+                    </div>
+                </div>
+	</div>
+    <div class="col-12 col-lg-6">
+    <p class="text-muter">Please fill out the form to complete your subscription</p>
+    <form action="{% url 'checkout' %}" metho="POST" id="payment-form">
+        {% csrf_token %}
+        <fieldset class="rounded px-3 mb-5">
+            {{ package_form.full_name | as_crispy_field }}
+            {{ package_form.email | as_crispy_field }}
+            {{ package_form.phone_number | as_crispy_field }}
+        </fieldset>
+        <fieldset class="px-3">
+            <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+            <!-- A Stripe card element will go here -->
+            <div class="mb-3" id="card-element"></div>
+            <!-- to display ant form errors -->
+            <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+        </fieldset>
+        
+        <div class="submit-button text-right mt-5 mb-2">                    
+						<a href="{% url 'view_cart' %}" class="btn btn-outline-black rounded-0">
+							<span class="icon">
+								<i class="fas fa-chevron-left"></i>
+							</span>
+							<span class="font-weight-bold">Adjust Cart</span>
+						</a>
+						<button id="submit-button" class="btn btn-black rounded-0">
+							<span class="font-weight-bold">Complete Purchase</span>
+							<span class="icon">
+								<i class="fas fa-lock"></i>
+							</span>
+						</button>
+						<p class="small text-danger my-0">
+							<span class="icon">
+								<i class="fas fa-exclamation-circle"></i>
+							</span>
+							<span>Your card will be charged: <strong>
+                            {{ subscription_count }}&euro;{{ total }}</strong></span>
+						</p>
+					</div>
+
+    </form>
+ </div>
+
+</div>
+</div>
+
+{% endblock %}

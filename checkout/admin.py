@@ -10,13 +10,13 @@ class PackageAdmin(admin.ModelAdmin):
     inlines = (PackageLineAdminInline, )
 
     readonly_fields = (
-        'order_number', 'user',
+        'order_number', 'user', 'email',
         'order_total', 'date',
     )
 
     list_display = (
         'order_number', 'full_name',
-        'phone_number', 'user',
+        'phone_number', 'user', 'email',
         'order_total', 'date',
     )
 

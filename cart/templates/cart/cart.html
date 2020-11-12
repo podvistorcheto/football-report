@@ -48,7 +48,7 @@
                 </li>
               </ul>
               {% if user.is_authenticated %}
-                    <a class="btn btn-success btn-block mt-2" href="#" title="Checkout">Proceed to checkout!</a>
+                    <a class="btn btn-success btn-block mt-2" href="{% url 'checkout' %}" title="Checkout">Proceed to checkout!</a>
               {% else %}
                     <a href="#" class="btn btn-danger btn-block mt-2">Add to Card ( You must be logged In)</a>
               {% endif %}

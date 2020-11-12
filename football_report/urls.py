@@ -28,6 +28,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('profile/', include('profiles.urls')),
     path('subscription/', subscription_view.subscriptions, name='subscription'),
+    path('checkout/', include('checkout.urls')),
     path('cart/', include('cart.urls')),
 ]
 

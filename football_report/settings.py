@@ -77,7 +77,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'cart.contexts.cart_contents',  # this is the contenxt.py file in the cart app, This makes it available on every page
+                'cart.contexts.cart_contents',  # this is the contenxt.py file in the cart app, This makes it render on every page
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
