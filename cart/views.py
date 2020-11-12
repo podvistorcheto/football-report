@@ -20,7 +20,7 @@ def add_to_cart(request, id):
     quantity = 1
     cart = request.session.get('cart', {})
     cart[id] = cart.get(id, quantity)
-    messages.error(request, f'Added {subscription.name} to your cart')
+    messages.success(request, f'Added {subscription.name} to your cart')
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
@@ -29,9 +29,12 @@ def add_to_cart(request, id):
 @login_required
 def remove_from_cart(request, id):
     '''a method to remove subscription from the cart before checkout'''
+    subscription = Subscription.objects.get(pk=id)
     item_id = id
     cart = request.session.get('cart', {})
     if cart[item_id] > 0:
         cart.pop(item_id)
-        request.session['cart'] = cart
+        messages.warning(request, f'Removed {subscription.name} from your cart')
+
+    request.session['cart'] = cart
     return redirect(reverse('view_cart'))

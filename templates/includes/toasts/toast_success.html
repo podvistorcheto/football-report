@@ -8,6 +8,38 @@
         </button>
 	</div>
 	<div class="toast-body bg-white">
-		{{ message }}
+		<div class="row">
+            <div class="col">
+                {{ message }}
+                <hr class="mt-1 mb-3">
+            </div>
 	</div>
+
+            <p class="logo-font bg-white text-black py-1">
+            <strong>Hey {{ user.username }},
+                </strong><br>
+                {{ subscription_count }} your subscription total cost of: &euro;{{ total }}</p>
+            <div class="bag-notification-wrapper">
+                {% for item in card_items %}
+                    <div class="row">
+                        <div class="col-3 my-1">
+                            <img class="rounded-circle account-img w-100" src="{{ user.profile.image.url }}">
+                        </div>
+                        <div class="col-9">
+                            <p class="my-0"><strong>{{ item.subsription.name }}</strong></p>
+                            <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col">
+                    <a href="#" class="btn btn-black btn-block rounded-0">
+                        <span class="text-uppercase">Go To Secure Checkout</span>
+                        <span class="icon">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
 </div>
