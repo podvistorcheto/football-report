@@ -19,17 +19,17 @@
   <!-- PROCEED TO CHECKOUT SECTION -->
   <section id="services" class="py-5">
     <div class="container">
-    <p>{{ subscription_count }} item(s) at a total cost of: &euro;{{ total }}</p>
-    {% for item in cart_items %}
+    <p>{{ subscription_count }} Your Subscription is at a total cost of: &euro;{{ total }}</p>
       <div class="row">
+      {% for item in cart_items %}
         <div class="col-md-4">
           <div class="card text-center">
             <div class="card-header bg-dark text-white">
-              <h3>{{ item.name }}</h3>
+              <h3>{{ item.subscription.name }}</h3>
             </div>
             <div class="card-body">
-              <h4 class="card-title">&euro;{{ item.price }}</h4>
-              <p class="card-text">{{ item.description}}</p>
+              <h4 class="card-title">&euro;{{ item.subscription.price }}</h4>
+              <p class="card-text">{{ item.subscription.description}}</p>
               <ul class="list-group">
                 <li class="list-group-item">
                   <i class="fas fa-check"></i> Feature One
