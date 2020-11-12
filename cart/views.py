@@ -20,3 +20,14 @@ def add_to_cart(request, id):
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
+
+
+@login_required
+def remove_from_cart(request, id):
+    '''a method to remove subscription from the cart before checkout'''
+    item_id = id
+    cart = request.session.get('cart', {})
+    if cart[item_id] > 0:
+        cart.pop(item_id)
+        request.session['cart'] = cart
+    return redirect(reverse('view_cart'))
