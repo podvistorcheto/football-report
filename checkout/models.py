@@ -9,7 +9,8 @@ class Package(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
     full_name = models.CharField(max_length=50, blank=False)
     phone_number = models.CharField(max_length=20, blank=False)
-    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE) 
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     date = models.DateField(auto_now_add=True)
 
     def _generate_order_number(self):

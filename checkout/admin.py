@@ -9,5 +9,18 @@ class PackageLineAdminInline(admin.TabularInline):
 class PackageAdmin(admin.ModelAdmin):
     inlines = (PackageLineAdminInline, )
 
+    readonly_fields = (
+        'order_number', 'user',
+        'order_total', 'date',
+    )
+
+    list_display = (
+        'order_number', 'full_name',
+        'phone_number', 'user',
+        'order_total', 'date',
+    )
+
+    ordering = ('-date',)
+
 
 admin.site.register(Package, PackageAdmin)
