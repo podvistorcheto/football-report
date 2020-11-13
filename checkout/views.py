@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from .forms import PackageForm
-
+from cart.contexts import cart_contents
 
 def checkout(request):
     cart = request.session.get('cart', {})
