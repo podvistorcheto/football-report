@@ -13,6 +13,12 @@ def cart_contents(request):
     cart_items = []
     total = 0
     subscription_count = 0
+    """
+    context = {
+        'cart_items': cart_items,
+        'total': total,
+        'subscription_count': subscription_count,
+    }"""
     
     for id, quantity in cart.items():
         subscription = get_object_or_404(Subscription, pk=id)
@@ -20,4 +26,4 @@ def cart_contents(request):
         subscription_count += quantity
         cart_items.append({'id': id, 'quantity': quantity, 'subscription': subscription})
     
-    return {'cart_items': cart_items, 'total': total, 'suscription': subscription_count}
+    return {'cart_items': cart_items, 'total': total, 'suscription_count': subscription_count}
