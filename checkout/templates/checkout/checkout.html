@@ -57,7 +57,7 @@
 	</div>
     <div class="col-12 col-lg-6">
     <p class="text-muter">Please fill out the form to complete your subscription</p>
-    <form action="{% url 'checkout' %}" metho="POST" id="payment-form">
+    <form action="{% url 'checkout' %}" method="POST" id="payment-form">
         {% csrf_token %}
         <fieldset class="rounded px-3 mb-5">
             {{ package_form.full_name | as_crispy_field }}

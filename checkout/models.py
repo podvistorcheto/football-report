@@ -11,7 +11,7 @@ class Package(models.Model):
     phone_number = models.CharField(max_length=20, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
-    order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    price = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     date = models.DateField(auto_now_add=True)
 
     def _generate_order_number(self):

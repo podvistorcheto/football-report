@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+   <!-- PAGE HEADER TEMPLATE -->
+    <header id="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 m-auto text-center">
+          <h1>Payment Successfull</h1>
+          <hr>
+            <p>Your subscription confirmation is below. A confirmation email will be sent to <strong>{{order.email }}</strong></p>
+        </div>
+      </div>
+    </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+  <!-- CHECKOUT PAGE  -->
+<div class="container">
+	<div class="row">
+		<div class="col-12 col-lg-7"></div>
+	</div>
+	<div class="row">
+		<div class="col-12 col-lg-7 text-right">
+			<a href="#" class="btn btn-black rounded my-2">
+				<span class="icon mr-2">
+                            <i class="fas fa-gifts"></i>
+                        </span>
+				<span class="text-uppercase">Now check out the latest reports</span>
+			</a>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
