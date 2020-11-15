@@ -23,7 +23,7 @@ def subscribe(request):
 
 class ArticleListView(ListView):
     model = Article
-    template_name = 'blog/blogpage_html'
+    template_name = 'blog/article_list.html'
     context_object_name = 'articles'
     ordering = ['-date_posted']
 
@@ -38,8 +38,10 @@ class ArticleCreateView(CreateView):
 
     def form_valid(self, form):
         profile = Profile.objects.get(user=self.request.user)
+
         form.instance.author = profile
         return super().form_valid(form)
+
 
 
 def newsletter(request):

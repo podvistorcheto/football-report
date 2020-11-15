@@ -1,8 +1,9 @@
 from django.shortcuts import render
+from blog.models import Article
 
-# Create your views here.
 
-def index(request):
-    """ A view to return the index page """
-
-    return render(request, 'homepage/index.html')
+def home(request):
+    context = {
+        'articles': Article.objects.all()
+    }
+    return render(request, 'homepage/index.html', context)

@@ -30,6 +30,7 @@ urlpatterns = [
     path('subscription/', subscription_view.subscriptions, name='subscription'),
     path('checkout/', include('checkout.urls')),
     path('cart/', include('cart.urls')),
+    path('test/', include('homepage.urls')),
 ]
 
 if settings.DEBUG:

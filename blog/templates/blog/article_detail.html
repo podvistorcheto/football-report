@@ -2,26 +2,36 @@
 {% load static %}
 
 {% block page_header %}
-  <header id="page-header">
-    <div class="container">
-      <div class="row">
-        
-      </div>
-    </div>
-  </header>
+<header id="page-header">
+	<div class="container">
+		<div class="row">
+
+		</div>
+	</div>
+</header>
 {% endblock %}
 
 {% block content %}
-    <section id="blog" class="py-3">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          
-          
-        </div>
-      </div>
-    </div>
-  </section>
-  
+<section id="blog" class="py-3">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<article class="media content-section">
+					<img class="account-img img-thumbnail" src="{{ user.profile.image.url }}">
+					<div class="media-body">
+						<div class="article-metadata">
+							<a class="mr-2" href="#">{{ article.author }}</a>
+							<small class="text-muted">{{ article.date_posted }}</small>
+						</div>
+						<h2><a class="article-title"
+								href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h2>
+						<p class="article-content">{{ article.content }}</p>
+					</div>
+				</article>
+			</div>
+		</div>
+	</div>
+</section>
+
 
 {% endblock %}
