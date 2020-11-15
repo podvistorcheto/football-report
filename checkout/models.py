@@ -13,6 +13,8 @@ class Package(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     date = models.DateField(auto_now_add=True)
+    original_cart = models.TextField(null=False, blank=False, default='')
+    stripe_pid = models.CharField(max_length=254, blank=False, default='')
 
     def _generate_order_number(self):
         """
@@ -34,7 +36,7 @@ class Package(models.Model):
 
 class PackageLineItem(models.Model):
     order = models.ForeignKey(Package, null=False, on_delete=models.CASCADE)
-    subscription = models.ForeignKey(Subscription, null=False, on_delete=models.CASCADE )
+    subscription = models.ForeignKey(Subscription, null=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(blank=False)
 
     def __str__(self):

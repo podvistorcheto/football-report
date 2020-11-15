@@ -41,19 +41,24 @@ def checkout(request):
             'phone_number': request.POST['phone_number'],
         }
         package_form = PackageForm(form_data)
-        if package_form.is_valid():
-            order = package_form.save()
+        if package_form.is_valid():           
+            order = package_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_cart = json.dumps(cart)
+            order.save()
+            print(order)
             for item_id, item_data in cart.items():
                 try:
                     subscription = Subscription.objects.get(id=item_id)
+                    order.price = subscription.price
                     if isinstance(item_data, int):
                         package_line_item = PackageLineItem(
                             order=order,
                             subscription=subscription,
                             quantity=item_data,
                         )
-                        package_line_item.save()
-                        print("it saved")
+                        package_line_item.save()   
                 except Subscription.DoesNotExist:
                     print(1)
                     messages.error(request, (

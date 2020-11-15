@@ -11,14 +11,14 @@ class PackageAdmin(admin.ModelAdmin):
 
     readonly_fields = (
         'order_number', 'user', 'email',
-        'price', 'date',
-    )
+        'price', 'date', 'original_cart',
+        'stripe_pid',)
 
     list_display = (
         'order_number', 'full_name',
         'phone_number', 'user', 'email',
-        'price', 'date',
-    )
+        'price', 'date', 'original_cart',
+        'stripe_pid',)
 
     ordering = ('-date',)
 
