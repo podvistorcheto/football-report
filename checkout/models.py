@@ -3,6 +3,7 @@ from django.db import models
 from django.conf import settings
 from subscription.models import Subscription
 from django.contrib.auth.models import User
+from profiles.models import Profile
 
 
 class Package(models.Model):
@@ -10,7 +11,7 @@ class Package(models.Model):
     full_name = models.CharField(max_length=50, blank=False)
     phone_number = models.CharField(max_length=20, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
-    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(Profile, null=True, on_delete=models.SET_NULL, related_name='orders')
     price = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     date = models.DateField(auto_now_add=True)
     original_cart = models.TextField(null=False, blank=False, default='')
