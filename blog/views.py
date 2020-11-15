@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from profiles.models import Profile
 from django.views.generic import (
     ListView,
     DetailView,
@@ -34,6 +35,11 @@ class ArticleDetailView(DetailView):
 class ArticleCreateView(CreateView):
     model = Article
     fields = ['title', 'content']
+
+    def form_valid(self, form):
+        profile = Profile.objects.get(user=self.request.user)
+        form.instance.author = profile
+        return super().form_valid(form)
 
 
 def newsletter(request):
