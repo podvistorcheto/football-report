@@ -1,6 +1,9 @@
 from django.urls import path
 from . import views
-from .views import ArticleListView, ArticleDetailView
+from .views import (ArticleListView,
+    ArticleDetailView,
+    ArticleCreateView
+)
 
 
 urlpatterns = [
@@ -9,5 +12,6 @@ urlpatterns = [
     path('subscribe/', views.subscribe, name='subscribe'),
     path('blogpage/', ArticleListView.as_view(), name='blogpage'),
     path('article/<int:pk>/', ArticleDetailView.as_view(), name='article_detail'),
+    path('article/new/', ArticleCreateView.as_view(), name='article_create'),
     path('newsletter/', views.newsletter, name='newsletter'),
 ]

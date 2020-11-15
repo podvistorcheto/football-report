@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+  <header id="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 m-auto text-center">
+          <h1>Publish Your Articles</h1>
+          <p>We would advise to prepare the titel and content in advance and add it here when ready</p>
+        </div>
+      </div>
+    </div>
+  </header>
+{% endblock %}
+
+{% block content %}
+    <section id="blog" class="py-3">
+    <div class="container">
+      <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Article</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Publish</button>
+            </div>
+        </form>
+    </div>
+    </div>
+  </section>
+  
+ 
+{% endblock %}

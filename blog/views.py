@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import ListView 
+from django.views.generic import (
+    ListView,
+    DetailView,
+    CreateView
+)
 from .models import Article
 
 
@@ -23,8 +27,13 @@ class ArticleListView(ListView):
     ordering = ['-date_posted']
 
 
-class ArticleDetailView(ListView):
+class ArticleDetailView(DetailView):
     model = Article
+
+
+class ArticleCreateView(CreateView):
+    model = Article
+    fields = ['title', 'content']
 
 
 def newsletter(request):

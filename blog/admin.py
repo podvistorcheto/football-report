@@ -6,7 +6,8 @@ class ArticleAdmin(admin.ModelAdmin):
     model = Article
 
     readonly_fields = (
-            'title', 'content',)
+            'author',
+            'date_posted',)
 
     list_display = (
             'title', 'author',
