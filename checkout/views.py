@@ -63,7 +63,7 @@ def checkout(request):
                             quantity=item_data,
                         )
                         package_line_item.save()
-                        request.user.save()   
+                        request.user.save()
                 except Subscription.DoesNotExist:
                     print(1)
                     messages.error(request, (

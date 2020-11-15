@@ -1,11 +1,13 @@
 from django.urls import path
 from . import views
+from .views import ArticleListView, ArticleDetailView
 
 
 urlpatterns = [
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
     path('subscribe/', views.subscribe, name='subscribe'),
-    path('blogpage/', views.blogpage, name='blogpage'),
+    path('blogpage/', ArticleListView.as_view(), name='blogpage'),
+    path('article/<int:pk>/', ArticleDetailView.as_view(), name='article_detail'),
     path('newsletter/', views.newsletter, name='newsletter'),
 ]

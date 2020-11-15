@@ -1,2 +1,16 @@
 from django.contrib import admin
-# Register your models here.
+from .models import Article
+
+
+class ArticleAdmin(admin.ModelAdmin):
+    model = Article
+
+    readonly_fields = (
+            'title', 'content',)
+
+    list_display = (
+            'title', 'author',
+            'date_posted', 'content',)
+
+
+admin.site.register(Article, ArticleAdmin)

@@ -38,33 +38,7 @@
             </div>
             <div class="col-12 col-lg-6">
                 <p class="text-muted logo-font">Subscription History</p>
-                <div class="order-history table-responsive">
-                    <table class="table table-sm table-borderless">
-                    <thead>
-                        <tr>
-                            <th>Subscription number</th>
-                            <th>Start date</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{ order }}
-                        {% for order in orders %}
-                            <tr>
-                                <td>
-                                    <a href="{% url 'order_history' order.order_number %}"
-                                        title="{{ order.order_number }}">
-                                            {{ order.order_number|truncatechars:10 }}
-                                        </a>
-                                </td>
-                                <td>{{ order.date }}</td>
-                                <td>{{ order.price }}</td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                    </table>      
-                </div>  
-                {{ subscriptions }}
+                {{ packages }}
             </div>
         </div>
     </div>

@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.generic import ListView 
+from .models import Article
 
 
 def home(request):
@@ -14,8 +16,15 @@ def subscribe(request):
     return render(request, 'blog/subscribe.html', {'title': 'Subscribe'})
 
 
-def blogpage(request):
-    return render(request, 'blog/blogpage.html', {'title': 'Blog'})
+class ArticleListView(ListView):
+    model = Article
+    template_name = 'blog/blogpage_html'
+    context_object_name = 'articles'
+    ordering = ['-date_posted']
+
+
+class ArticleDetailView(ListView):
+    model = Article
 
 
 def newsletter(request):
