@@ -6,6 +6,7 @@ from .forms import PackageForm
 from .models import Package, PackageLineItem
 from subscription.models import Subscription
 from cart.contexts import cart_contents
+from profiles.models import Profile
 
 import stripe
 import json
@@ -41,13 +42,16 @@ def checkout(request):
             'phone_number': request.POST['phone_number'],
         }
         package_form = PackageForm(form_data)
-        if package_form.is_valid():           
+        if package_form.is_valid():
+            profile = Profile.objects.get(user=request.user)
             order = package_form.save(commit=False)
+            order.user = profile
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_cart = json.dumps(cart)
             order.save()
             print(order)
+            print(request.user)
             for item_id, item_data in cart.items():
                 try:
                     subscription = Subscription.objects.get(id=item_id)
@@ -58,7 +62,8 @@ def checkout(request):
                             subscription=subscription,
                             quantity=item_data,
                         )
-                        package_line_item.save()   
+                        package_line_item.save()
+                        request.user.save()   
                 except Subscription.DoesNotExist:
                     print(1)
                     messages.error(request, (

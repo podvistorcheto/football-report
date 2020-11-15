@@ -1,12 +1,16 @@
 from django.shortcuts import render, get_object_or_404
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+
+from .models import Profile
+from checkout.models import Package
 
 
 @login_required
-def profile(request):
+def profile(request, order_number):
     """ to display user's profile page """
     profile = get_object_or_404(Profile, user=request.user)
-    order = get_object_or_404(Package, order_number=order_number)
+    order = Package.objects.get.filter(instance=profile)
 
     messages.info(request, (
         f'This is a past confirmation for order number {order_number}. '
@@ -15,7 +19,7 @@ def profile(request):
 
     template = "profiles/profile.html"
     context = {
-        'profile': profiles,
+        'profile': profile,
         'order': order,
         'from_profile': True,
     }
