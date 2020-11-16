@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.http import HttpResponse
 from profiles.models import Profile
 from django.views.generic import (
@@ -45,7 +45,7 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class ArticleUpdateView(LoginRequiredMixin, UpdateView):
+class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Article
     fields = ['title', 'content']
 
@@ -54,6 +54,12 @@ class ArticleUpdateView(LoginRequiredMixin, UpdateView):
 
         form.instance.author = profile
         return super().form_valid(form)
+
+    def test_func(self):
+        article = self.get_object()
+        if self.request.user == article.author:
+            return True
+        return False
 
 
 def newsletter(request):
