@@ -2,6 +2,15 @@ body {
   overflow-x: hidden;
 }
 
+.masthead {
+  margin-bottom: 50px;
+  background: url('../pics/post-bg.jpg') no-repeat center center;
+  background-color: #868e96;
+  background-attachment: scroll;
+  position: relative;
+  background-size: cover;
+}
+
 .navbar .nav-link {
   font-size: 14px;
   text-transform: uppercase;

@@ -4,5 +4,5 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', auth_views.LoginView.as_view(template_name='profiles/profile.html'), name='profile'),
+    path('', views.profile, name='profile')
 ]

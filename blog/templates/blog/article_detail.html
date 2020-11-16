@@ -2,17 +2,11 @@
 {% load static %}
 
 {% block page_header %}
-<header id="page-header">
-	<div class="container">
-		<div class="row">
 
-		</div>
-	</div>
-</header>
 {% endblock %}
 
 {% block content %}
-<section id="blog" class="py-3">
+  <hr>
 	<div class="container">
 		<div class="row">
 			<div class="col">
@@ -21,7 +15,13 @@
 					<div class="media-body">
 						<div class="article-metadata">
 							<a class="mr-2" href="#">{{ article.author }}</a>
-							<small class="text-muted">{{ article.date_posted }}</small>
+							<small class="text-muted">{{ article.date_posted|date:"F d, Y" }}</small>
+                        {% if user == article.author %}
+                        <div>
+                            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'article_update' object.id %}">Update</a>
+                            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'artcle_delete' object.id %}">Delete</a>
+                        </div>
+                        {% endif %}
 						</div>
 						<h2><a class="article-title"
 								href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h2>
@@ -32,6 +32,4 @@
 		</div>
 	</div>
 </section>
-
-
 {% endblock %}

@@ -52,7 +52,7 @@
     <!-- NAVIGATION BAR -->
      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container">
-      <a href="{% url 'home' %}" class="navbar-brand logo-font">The Football Report</a>
+      <a href="{% url 'home' %}" class="navbar-brand">The Football Report</a>
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -73,10 +73,6 @@
           </li>
           <li class="nav-item">
             <a href="{% url 'account_logout' %}" class="nav-link">Logout</a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'view_cart' %}" class="nav-link">
-            <i class="fa fa-shopping-bag fa-2x " aria-hidden="true"></i></a>
           </li>
           {% else %}
           <li class="nav-item">

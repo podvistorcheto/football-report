@@ -6,7 +6,8 @@ from django.views.generic import (
     ListView,
     DetailView,
     CreateView,
-    UpdateView
+    UpdateView,
+    DeleteView
 )
 from .models import Article
 
@@ -36,28 +37,42 @@ class ArticleDetailView(DetailView):
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):
     model = Article
-    fields = ['title', 'content']
+    fields = ['title','content']
 
     def form_valid(self, form):
         profile = Profile.objects.get(user=self.request.user)
-
+        print(profile)
         form.instance.author = profile
         return super().form_valid(form)
 
 
 class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Article
-    fields = ['title', 'content']
+    fields = ['title', 'image', 'content']
 
     def form_valid(self, form):
         profile = Profile.objects.get(user=self.request.user)
-
+        
         form.instance.author = profile
         return super().form_valid(form)
 
     def test_func(self):
+        author = Profile.objects.get(user=self.request.user)
         article = self.get_object()
+        print(author)
         if self.request.user == article.author:
+            return True
+        else:
+            return False
+
+
+class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Article
+
+    def test_func(self):
+        profile = Profile.objects.get(user=self.request.user)
+        article = self.get_object()
+        if self.request.user == user:
             return True
         return False
 

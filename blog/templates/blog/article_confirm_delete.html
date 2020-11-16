@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+  <header id="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 m-auto text-center">
+          <h1>Removal Article</h1>
+          <p>Once removed the article will no longer appear at the front end</p>
+        </div>
+      </div>
+    </div>
+  </header>
+{% endblock %}
+
+{% block content %}
+    <section id="blog" class="py-3">
+    <div class="container">
+      <div class="content-section">
+        <form method="POST">
+            <div class="form-group">
+                <legend class="border-bottom mb-4">Remove Article</legend>
+                <h2>Are you sure you want to remove the article"{{ article.title }}"</h2>
+            </div>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-danger" type="submit">Confirm Removal</button>
+                <a class="btn btn-outline-secondary" href="{% url 'article_detail' object.id %}">Cancel</a>
+            </div>
+        </form>
+    </div>
+    </div>
+  </section>
+  
+ 
+{% endblock %}

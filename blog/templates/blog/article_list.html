@@ -25,7 +25,7 @@
           <div class="media-body">
             <div class="article-metadata">
               <a class="mr-2" href="#">{{ article.author }}</a>
-              <small class="text-muted">{{ article.date_posted }}</small>
+              <small class="text-muted">{{ article.date_posted|date:"F d, Y"  }}</small>
             </div>
             <h2><a class="article-title" href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h2>
             <p class="article-content">{{ article.content }}</p>
