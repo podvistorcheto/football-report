@@ -5,7 +5,8 @@ from profiles.models import Profile
 from django.views.generic import (
     ListView,
     DetailView,
-    CreateView
+    CreateView,
+    UpdateView
 )
 from .models import Article
 
@@ -43,6 +44,16 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
         form.instance.author = profile
         return super().form_valid(form)
 
+
+class ArticleUpdateView(LoginRequiredMixin, UpdateView):
+    model = Article
+    fields = ['title', 'content']
+
+    def form_valid(self, form):
+        profile = Profile.objects.get(user=self.request.user)
+
+        form.instance.author = profile
+        return super().form_valid(form)
 
 
 def newsletter(request):
