@@ -45,6 +45,11 @@ body {
   background-size: cover;
 }
 
+.img-thumbnail {
+    width: 300px;
+    height: 205px;
+}
+
 #home-icons {
     background-color: #dad0d0;
 }
@@ -341,4 +346,29 @@ body {
     justify-content: center;
     margin: 0;
     height: 100%;
+}
+
+
+/* styling the article detail view */
+
+.banner {
+  height: 400px;
+  max-width: 1140px;
+  margin: 40px auto 40px auto;
+  background-color: #2a2a2a;
+  display: flex;
+}
+
+.center-me {
+  color: #FFF;
+  font-size: 50px;
+  margin: auto;
+  display: flex;
+}
+
+.author-img {
+  max-height: 50px;
+  max-width: 50px;
+  margin-right: 20px;
+  margin-bottom: 16px;
 }
