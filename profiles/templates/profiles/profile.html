@@ -10,11 +10,18 @@
                     src="{{ user.profile.image.url }}"
                     />
                     <div class="media-body">
-                    <h2 class="account-heading">{{ user.username }}</h2>
-                    <p class="text-secondary">{{ user.email }}</p>
+                        <h2 class="account-heading">{{ user.username }}</h2>
+                        <p class="text-secondary">{{ user.email }}</p>
+                        {{% if user.is_authenticated and orders %}
+                            <form method="POST">
+                            {% csrf_token %}
+                                <div class="form-group">
+                                    <a class="btn btn-small btn-outline-secondary" href="{% url 'article_create' %}">publish new article</a>
+                                </div> 
+                            </form>
+                        {%endif %}
                     </div>
                 </div>
-                <p></p>
                 </div>
             </div>
         </div>
