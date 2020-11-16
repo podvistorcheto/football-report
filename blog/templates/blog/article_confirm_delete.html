@@ -19,6 +19,7 @@
     <div class="container">
       <div class="content-section">
         <form method="POST">
+        {% csrf_token %}
             <div class="form-group">
                 <legend class="border-bottom mb-4">Remove Article</legend>
                 <h2>Are you sure you want to remove the article"{{ article.title }}"</h2>

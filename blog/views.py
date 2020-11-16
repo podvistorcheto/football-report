@@ -40,15 +40,15 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
     fields = ['title','content']
 
     def form_valid(self, form):
-        profile = Profile.objects.get(user=self.request.user)
-        print(profile)
+        author = Profile.objects.get(user=self.request.user)
+
         form.instance.author = profile
         return super().form_valid(form)
 
 
 class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Article
-    fields = ['title', 'image', 'content']
+    fields = ['title', 'content']
 
     def form_valid(self, form):
         profile = Profile.objects.get(user=self.request.user)
@@ -58,9 +58,11 @@ class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def test_func(self):
         author = Profile.objects.get(user=self.request.user)
+
         article = self.get_object()
-        print(author)
-        if self.request.user == article.author:
+        print(article.author)
+        print(self.request.user)
+        if self.request.user == article.author.user:
             return True
         else:
             return False
@@ -68,13 +70,18 @@ class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Article
+    success_url = '/'
 
     def test_func(self):
-        profile = Profile.objects.get(user=self.request.user)
+        author = Profile.objects.get(user=self.request.user)
+
         article = self.get_object()
-        if self.request.user == user:
+        print(article.author)
+        print(self.request.user)
+        if self.request.user == article.author.user:
             return True
-        return False
+        else:
+            return False
 
 
 def newsletter(request):
