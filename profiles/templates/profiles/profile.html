@@ -40,7 +40,7 @@
     <div class="row">
       <div class="col-12 col-lg-6">
         <p class="text-muted logo-font">Published Articles</p>
-          {% for article in articles %}
+        {% for article in articles %}
         <article class="media content-section">
           <img class="account-img img-thumbnail" src="{{ user.profile.image.url }}">
           <div class="media-body">
@@ -67,9 +67,10 @@
                         <tbody>
                             {% for order in orders %}
                                 <tr>
-                                {% for subscrption in subscriptions %}
+                                <td>{{ order.user }}</td>
+                                <!-- {% for subscrption in subscriptions %}
                                     <td>{{ subscrption }}</td>
-                                    {% endfor %}
+                                    {% endfor %} -->
                                     <td>
                                     {{ order.order_number|truncatechars:10 }}
                                     </td>

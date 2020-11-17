@@ -11,12 +11,15 @@ from blog.models import Article
 @login_required
 def profile(request):
     """ to display user's profile page """
-    orders = Package.objects.all()
-    subscriptions = PackageLineItem.objects.all()
-    articles = Article.objects.all()
+    profile = Profile.objects.get(user=request.user)
+    author = Profile.objects.get(user=request.user)
+    orders = Package.objects.filter(user=profile)
+    subscriptions = PackageLineItem.objects.filter()
+    articles = Article.objects.filter(author=profile)
 
     template = "profiles/profile.html"
     context = {
+        'author': author,
         'profile': profile,
         'orders': orders,
         'articles': articles,

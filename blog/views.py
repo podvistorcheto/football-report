@@ -37,7 +37,7 @@ class ArticleDetailView(DetailView):
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):
     model = Article
-    fields = ['title', 'article_image','content']
+    fields = ['title', 'article_image', 'content']
 
     def form_valid(self, form):
         author = Profile.objects.get(user=self.request.user)
@@ -48,12 +48,12 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
 
 class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Article
-    fields = ['title', 'content']
+    fields = ['title', 'article_image', 'content']
 
     def form_valid(self, form):
         author = Profile.objects.get(user=self.request.user)
         
-        form.instance.author = profile
+        form.instance.author = author
         return super().form_valid(form)
 
     def test_func(self):
