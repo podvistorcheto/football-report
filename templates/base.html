@@ -50,6 +50,7 @@
 </head>
 <body>
     <!-- NAVIGATION BAR -->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container">
       <a href="{% url 'home' %}" class="navbar-brand">The Football Report</a>
@@ -123,12 +124,14 @@
     {% endblock %}    
 
      <!-- FOOTER -->
+
   <footer id="main-footer" class="text-center p-4">
     <div class="container">
       <div class="row">
         <div class="col">
           <p>Copyright PodvisTorcheto &copy;
             <span id="year"></span> Basic Template</p>
+            
         </div>
       </div>
     </div>
