@@ -21,7 +21,7 @@
         <div class="col">
         {% for article in articles %}
         <article class="media content-section">
-          <img class="account-img img-thumbnail" src="{{ user.profile.image.url }}">
+          <img class="account-img img-thumbnail" src="{{ article.article_image.url }}">
           <div class="media-body">
             <div class="article-metadata">
               <a class="mr-2" href="#">{{ article.author }}</a>
