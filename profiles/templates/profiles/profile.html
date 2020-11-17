@@ -1,10 +1,10 @@
 {% extends "base.html" %} {% load static %} {% block page_header %}
 <header id="page-header">
   <div class="container">
-        <div class="row">
-            <div class="col-md-6 m-auto text-center">
+        <div class="row profile-wrap">
+            <div class="col-md-6 text-center">
                 <div class="content-section">
-                <div class="media">
+                <div class="media profile-wrap">
                     <img
                     class="account-img img-thumbnail"
                     src="{{ user.profile.image.url }}"
@@ -12,14 +12,16 @@
                     <div class="media-body">
                         <h2 class="account-heading">{{ user.username }}</h2>
                         <p class="text-secondary">{{ user.email }}</p>
-                        {{% if user.is_authenticated and orders %}
+                        <div>
+                        {% if user.is_authenticated and orders %}
                             <form method="POST">
                             {% csrf_token %}
                                 <div class="form-group">
                                     <a class="btn btn-small btn-outline-secondary" href="{% url 'article_create' %}">publish new article</a>
                                 </div> 
                             </form>
-                        {%endif %}
+                        {% endif %}
+                        </div>
                     </div>
                 </div>
                 </div>
@@ -32,7 +34,6 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <hr />
         <h2 class="logo-font mb-4">Profile Information</h2>
         <hr />
       </div>
