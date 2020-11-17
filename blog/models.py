@@ -7,6 +7,7 @@ from profiles.models import Profile
 
 class Article(models.Model):
     title = models.CharField(max_length=100)
+    article_image = models.ImageField(default="centerpitch.jpg", upload_to="article_pics")
     content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(Profile, on_delete=models.CASCADE)
