@@ -29,6 +29,7 @@ class ArticleListView(ListView):
     template_name = 'blog/article_list.html'
     context_object_name = 'articles'
     ordering = ['-date_posted']
+    paginate_by = 2
 
 
 class ArticleDetailView(DetailView):
