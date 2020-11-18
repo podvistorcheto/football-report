@@ -30,3 +30,9 @@ $(function () {
     });
   });
 });
+// get the current year automatically
+function myFunction() {
+  var d = new Date();
+  var n = d.getFullYear();
+  document.getElementById("year").innerHTML = n;
+}
