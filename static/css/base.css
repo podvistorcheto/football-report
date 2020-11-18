@@ -1,7 +1,10 @@
 body {
-  overflow-x: hidden;
-  height: calc(100vh - 164px);
-  font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+    background-color: #f1f1f1;
+    position: relative;
+    padding-bottom: 123px;
+    min-height: 100vh;
 }
 
 
@@ -131,8 +134,11 @@ body {
 }
 
 #main-footer {
-  background: #000;
-  color: #fff;
+    background: #000;
+    color: #fafafa;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 /* profile page styling */
