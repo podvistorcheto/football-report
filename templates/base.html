@@ -51,45 +51,45 @@
 <body>
     <!-- NAVIGATION BAR -->
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <div class="container">
-      <a href="{% url 'home' %}" class="navbar-brand">The Football Report</a>
-      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a href="{% url 'about' %}" class="nav-link">About</a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'article_list' %}" class="nav-link">Reports</a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'subscription' %}" class="nav-link">Subscribe</a>
-          </li>
-          {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a href="{% url 'profile' %}" class="nav-link">My profile</a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'account_logout' %}" class="nav-link">Logout</a>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a href="{% url 'subscription' %}" class="nav-link">Subscribe</a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'account_login' %}" class="nav-link">Login</a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'account_signup' %}" class="nav-link">Sign Up</a>
-          </li>
-          {% endif %}
-        </ul>
-      </div>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+        <a href="{% url 'home' %}" class="navbar-brand">The Football Report</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="{% url 'about' %}" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'article_list' %}" class="nav-link">Reports</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'subscription' %}" class="nav-link">Subscribe</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a href="{% url 'profile' %}" class="nav-link">My profile</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'account_logout' %}" class="nav-link">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a href="{% url 'subscription' %}" class="nav-link">Subscribe</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'account_login' %}" class="nav-link">Login</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'account_signup' %}" class="nav-link">Sign Up</a>
+            </li>
+            {% endif %}
+            </ul>
+        </div>
+        </div>
+    </nav>
 
     {% if messages %}
         <div class="message-container">
@@ -125,18 +125,31 @@
 
      <!-- FOOTER -->
 
-  <footer id="main-footer" class="text-center p-4">
+    <footer id="main-footer" class="text-center p-4">
     <div class="container">
-      <div class="row">
-        <div class="col">
-          <p>Copyright PodvisTorcheto &copy;
-            <span id="year"></span> Basic Template</p>
-            
+        <div class="row main-footer py-3 py-lg-2">
+            <div class="col-12 container text-center">
+                <a href="https://github.com/https://github.com/podvistorcheto/football-report" target="_blank" 
+                    rel="noopener">
+                    <i class="fab fa-github social-icons" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.linkedin.com" target="_blank"
+                    rel="noopener">
+                    <i class="fab fa-linkedin-in social-icons" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener">
+                    <i class="fab fa-instagram social-icons" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener">
+                    <i class="fab fa-facebook social-icons" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="col-12 text-center">
+                <small> For educational use only | © 2020 Deyan Denev  </small>
+            </div>
         </div>
-      </div>
-    </div>
-  </footer>
+        </div>
+    </footer>
 
 </body>
-
 </html>

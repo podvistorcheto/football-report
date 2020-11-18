@@ -15,8 +15,9 @@
 {% endblock %}
 
 {% block content %}
+<div class="container">
     <section id="blog" class="py-3">
-    <div class="container">
+    
       <div class="content-section">
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
@@ -29,8 +30,9 @@
             </div>
         </form>
     </div>
+    </section>
     </div>
-  </section>
+  
   
  
 {% endblock %}

@@ -30,8 +30,9 @@
   </div>
 </header>
 {% endblock %} {% block content %}
-<section id="blog" class="py-3">
-  <div class="container">
+<div class="container">
+<section class="py-3 about">
+  
     <div class="row">
       <div class="col">
         <h2 class="logo-font mb-4">Profile Information</h2>
@@ -46,10 +47,10 @@
           
           <div class="media-body">
             <div class="article-metadata">
-              <a class="mr-2" href="#">{{ article.author }}</a>
+              <a class="mr-2 text-black">{{ article.author }}</a>
               <small class="text-muted">{{ article.date_posted|date:"F d, Y"  }}</small>
             </div>
-            <h2><a class="article-title" href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h2>
+            <h2><a class="article-title text-dark" href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h2>
           </div>
         </article>
         {% endfor %}
@@ -83,6 +84,7 @@
                     </table>
       </div>
     </div>
+    </section>
   </div>
-</section>
+
 {% endblock %}

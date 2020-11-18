@@ -5,7 +5,8 @@ from .views import (
     ArticleDetailView,
     ArticleCreateView,
     ArticleUpdateView,
-    ArticleDeleteView
+    ArticleDeleteView,
+    UserArticleListView
 )
 
 

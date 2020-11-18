@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.http import HttpResponse
+from django.contrib.auth.models import User
 from profiles.models import Profile
 from django.views.generic import (
     ListView,
@@ -28,9 +29,20 @@ class ArticleListView(ListView):
     model = Article
     template_name = 'blog/article_list.html'
     context_object_name = 'articles'
-    ordering = ['-date_posted']
     paginate_by = 3
+    ordering = ['-date_posted']
 
+
+class UserArticleListView(ListView):
+    model = Article
+    template_name = 'blog/user_articles.html'
+    context_object_name = 'articles'
+    paginate_by = 3
+    """
+    def get_queryset(self):
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        return Article.objects.filter(author=user).order_by('-date_posted')
+    """
 
 class ArticleDetailView(DetailView):
     model = Article

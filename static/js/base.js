@@ -1,5 +1,5 @@
-    // Get the current year for the copyright
-    $('#year').text(new Date().getFullYear());
+    // Get the current year for the footer
+    $('#year').this(new Date().getFullYear());
     // Modify slider responsiveness
     $('.carousel').carousel({
       interval: 6000,
