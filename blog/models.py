@@ -3,12 +3,14 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
 from profiles.models import Profile
+from ckeditor.fields import RichTextField
 
 
 class Article(models.Model):
     title = models.CharField(max_length=100)
     article_image = models.ImageField(default="inthenet.jpg", upload_to="article_pics")
-    content = models.TextField()
+    content = RichTextField(blank=True, null=True)
+    #content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(Profile, on_delete=models.CASCADE)
 

@@ -36,3 +36,4 @@ function myFunction() {
   var n = d.getFullYear();
   document.getElementById("year").innerHTML = n;
 }
+// methods for the back-to-top button

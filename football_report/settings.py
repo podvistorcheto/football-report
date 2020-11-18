@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'subscription',
     'cart',
     'checkout',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
