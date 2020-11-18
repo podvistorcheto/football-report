@@ -1,56 +1,15 @@
-<div class="toast custom-toast rounded border-top-0" data-autohide="false">
-	<div class="arrow-up arrow-success"></div>
-	<div class="w-100 toast-capper bg-success"></div>
-	<div class="toast-header bg-white text-dark">
-		<strong class="mr-auto">Success!</strong>
-		<button type="button" class="ml-2 mb-1 close text-dark" data-dismiss="toast" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-	</div>
-	<div class="toast-body bg-white">
-		{{ message }}
-	</div>
-</div>
-
-
-<!---
-<div class="row">
-		<div class="bag-notification-wrapper">
-            <div class="row">
-				<div class="col-4 my-1">
-					<img class="rounded-circle account-img w-100" src="{{ user.profile.image.url }}">
-                </div>
-                <div class="col-8">
-                    <p class="logo-font bg-white text-black py-1"><strong>Hey {{ user.username }},</strong></p>
-                    <br>
-                    <p class="my-0">{{ subscription_count }} your subscription total cost: &euro;{{ total }}</p>
-				</div>
-			</div>
-			{% for item in cart_items %}
-			<div class="col-md-4">
-				<div class="card text-center">
-					<div class="card-header bg-dark text-white">
-							<h3>{{ item.subscription.name }}</h3>
-					</div>
-				<div class="card-body">
-								<h4 class="card-title">&euro;{{ item.subscription.price }}</h4>
-			{% endfor %}
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-						<a href="#" class="btn btn-black btn-block rounded-0">
-										<span class="text-uppercase">Go To Secure Checkout</span>
-										<span class="icon">
-                                        <i class="fas fa-lock"></i>
-                                        </span>
-                        </a>
-				</div>
-			</div>
-		</div>
-			</div>
-		</div>
-	</div>
+<div class="toast rounded-1" style="" data-autohide="false">
+    <div class="toast-header">
+      <svg class="rounded-0" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+        focusable="false" role="img">
+        <rect fill="green" width="100%" height="100%" /></svg>
+      <strong class="mr-auto">Success</strong>
+      <small>now</small>
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
-
--->
+    <div class="toast-body toast-style-s">
+      <p class="p-toast">{{ message }}</p>
+    </div>
+  </div>

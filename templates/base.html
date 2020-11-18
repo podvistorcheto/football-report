@@ -20,7 +20,8 @@
     {% endblock %}
 
     {% block corecss %}
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
@@ -50,10 +51,9 @@
 </head>
 <body>
     <!-- NAVIGATION BAR -->
-    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container">
-        <a href="{% url 'home' %}" class="navbar-brand">The Football Report</a>
+        <a href="{% url 'home' %}" class="navbar-brand"><strong>The Football Report</strong></a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -76,9 +76,6 @@
                 <a href="{% url 'account_logout' %}" class="nav-link">Logout</a>
             </li>
             {% else %}
-            <li class="nav-item">
-                <a href="{% url 'subscription' %}" class="nav-link">Subscribe</a>
-            </li>
             <li class="nav-item">
                 <a href="{% url 'account_login' %}" class="nav-link">Login</a>
             </li>

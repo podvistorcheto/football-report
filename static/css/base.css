@@ -1,10 +1,19 @@
 body {
   overflow-x: hidden;
+  height: calc(100vh - 164px);
+  font-family: 'Inter', sans-serif;
 }
 
-.about {
-    min-height: calc(100vh - 246px - 100px);
+
+/* from Bulma to style checkout buttons */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
 }
+
 
 .navbar .nav-link {
   font-size: 14px;
@@ -17,8 +26,9 @@ body {
   border-left: #444 3px solid;
 }
 
-.logo-font {
+.navbar-brand {
     text-transform: uppercase;
+    font-size: 32px;
 }
 
 .carousel-item {
@@ -57,31 +67,6 @@ body {
   background-repeat: no-repeat;
   text-align: center;
   color: #fff;
-}
-
-.btn-black {
-    background: black;
-    color: white;
-}
-
-.btn-outline-black {
-    background: white;
-    color: black !important; /* use important to override link colors for <a> elements */
-    border: 1px solid black;
-}
-
-.btn-outline-black:hover,
-.btn-outline-black:active,
-.btn-outline-black:focus {
-    background: black;
-    color: white !important;
-}
-
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #222;
-    color: white;
 }
 
 .dark-overlay {
@@ -145,12 +130,15 @@ body {
   background: #333;
 }
 
-
+#main-footer {
+  background: #000;
+  color: #fff;
+}
 
 /* profile page styling */
 
 .content-section {
-  background: #fafafa;
+  background: #ffffff;
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
@@ -227,10 +215,10 @@ body {
 
 /* --- styling the toasts --- */
 
-.message-container {
+.container-messages {
+    background-color: rgb(221, 212, 212);
     position: fixed;
-    top: 60px;
-    right: 15px;
+    opacity: .4;
     z-index: 99999999999;
 }
 
@@ -238,68 +226,42 @@ body {
     overflow: visible;
 }
 
-.toast-capper {
-    height: 15px;
+.toast-style-w {
+    background: rgb(212, 178, 114);
 }
 
-/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
-.arrow-up {
-    width: 0; 
-    height: 0; 
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent; 
-    border-bottom: 10px solid black;
-    position: absolute;
-    top: -10px;
-    right: 93px;
+.toast-style-e {
+    background: rgb(219, 99, 99);
 }
 
-/* Convenience classes - colors copied from Bootstrap */
-.arrow-primary {
-    border-bottom-color: #007bff !important;
+.toast-style-i {
+    background: rgb(98, 138, 212);
 }
 
-.arrow-secondary {
-    border-bottom-color: #6c757d !important;
+.toast {
+    position: absolute; 
+    top: 100px; 
+    right: 75px;
 }
 
-.arrow-success {
-    border-bottom-color: #28a745 !important;
-}
-
-.arrow-danger {
-    border-bottom-color: #dc3545 !important;
-}
-
-.arrow-warning {
-    border-bottom-color: #ffc107 !important;
-}
-
-.arrow-info {
-    border-bottom-color: #17a2b8 !important;
-}
-
-.arrow-light {
-    border-bottom-color: #f8f9fa !important;
-}
-
-.arrow-dark {
-    border-bottom-color: #343a40 !important;
-}
-
-.bag-notification-wrapper {
+.toast-body {
     height: 100px;
-    overflow-x: hidden;
-    overflow-y: auto;
+    text-align: justify;
 }
 
-/* from Bulma to style checkout buttons */
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
+.toast-style-s {
+    background:#5aaf6d
+}
+
+.toast {
+    background: lightgray;
+}
+
+.p-toast {
+    margin-left: 4px;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: -webkit-left;
 }
 
 /* Checkout form styles */
@@ -376,6 +338,7 @@ body {
   background-color: #2a2a2a;
   display: flex;
   margin-bottom: 5px;
+  margin-left: -17px;
 }
 
 .center-me {
@@ -415,8 +378,6 @@ body {
   background-color: #555;
 }
 
-/* profile hear updated styles */
-
 .image-wrapper {
     color: blue;
 }
@@ -425,16 +386,33 @@ body {
     margin-bottom: -9px;
 }
 
-/* article_detail page */
-
-.margin-reduced {
-    margin-top: -50px;
+.newspaper {
+    column-count: 1;
+    text-align: justify;
+    padding-left: 175px;
+    padding-right: 175px;
+}
+  
+.newspaper p:first-of-type:first-letter {
+    font-size:3em;
+    float: left;
+    /*adjust the following properties at your own risk*/
+    line-height: 50%;
+    margin:0.1em 0.1em 0.1em -0.05em;
+  }
+.newspaper img{
+    height:auto;
+    width:100%;
+  }
+  
+.newspaper h2{
+   column-span: all;
 }
 
-.margin-reduced {
-    margin-top: -50px;
-    margin-left: 90px;
-    margin-right: 90px;
+#align {
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: justify;
 }
 
 
