@@ -1,0 +1,1 @@
+The Football Report confirmation for Subscription Number {{ order.order_number }}

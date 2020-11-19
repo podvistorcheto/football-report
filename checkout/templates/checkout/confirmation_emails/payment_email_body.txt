@@ -1,0 +1,15 @@
+Hello there,
+
+We are are greatful for your support. 
+This is a confirmation of your subscription at The Football Report. Your subscription information is below:
+
+Subscription Number: {{ order.order_number }}
+Purchase Date: {{ order.date }}
+
+Price Paid: {{ order.price }}€
+
+Thank you for your supporting us!
+
+Sincerely,
+
+The Football Report Team
