@@ -13,16 +13,13 @@
         class="author-img img-thumbnail rounded-circle"
         src="{{ user.profile.image.url }}"
       />
-        <a class="text-muted">Written by {{ article.author }}</a>
           <small class="text-muted"
-            >on {{ article.date_posted|date:"F d, Y" }}</small
+            >Written by {{ article.author }} on {{ article.date_posted|date:"F d, Y" }}</small
           >
       </div>
       <hr />
-      <p class="article-content">{{ article.content|safe }}</p>
-    </div>
-  </div>
-          <form method="post">
+      <p class="article-content">{{ article.content }}</p>
+      <form method="post">
             <div class="form-group">
               {% csrf_token %}
               <a
@@ -37,5 +34,7 @@
               >
             </div>
           </form>
-        </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
