@@ -31,26 +31,30 @@ body {
 
 .navbar-brand {
     text-transform: uppercase;
-    font-size: 26px;
+    font-size: 24px;
 }
 
 .carousel-item {
-  height: 550px;
+  height: 450px;
+  
 }
 
 .carousel-image-1 {
   background: url('../pics/humberto-santos-KDZW-_fMsuM-unsplash(1).jpg');
   background-size: cover;
+  width: 100%;
 }
 
 .carousel-image-2 {
-background: url('../pics/bielsa1.jpg');
+  background: url('../pics/bielsa1.jpg');
   background-size: cover;
+  width: 100%;
 }
 
 .carousel-image-3 {
   background: url('../pics/unplash3.jpg');
   background-size: cover;
+  width: 100%;
 }
 
 .img-thumbnail {
@@ -446,5 +450,5 @@ background: url('../pics/bielsa1.jpg');
     color: #fafafa;
 }
 
-/* back-to-top-button */
+/* test */
 

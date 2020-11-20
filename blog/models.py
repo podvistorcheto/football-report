@@ -7,7 +7,7 @@ from ckeditor.fields import RichTextField
 
 
 class Article(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=256)
     article_image = models.ImageField(default="inthenet.jpg", upload_to="article_pics")
     content = RichTextField(blank=True, null=True)
     date_posted = models.DateTimeField(default=timezone.now)

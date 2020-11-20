@@ -1,19 +1,11 @@
-{% extends "base.html" %} {% load static %} {% block content %}
-<section class="about py-3">
-<div class="container">
-        {% for article in articles %}
-        <article class="media content-section">
-          <img class="account-img img-thumbnail" src="{{ user.profile.image.url }}">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2" href="#">{{ article.author }}</a>
-              <small class="text-muted">{{ article.date_posted }}</small>
-            </div>
-            <h2><a class="article-title" href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h2>
-            <p class="article-content">{{ article.content }}</p>
-          </div>
-        </article>
-        {% endfor %}
-</div>
-</section>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAVBAR</title>
+</head>
+<body>
+    
+</body>
+</html>
