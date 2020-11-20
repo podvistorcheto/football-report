@@ -31,25 +31,25 @@ body {
 
 .navbar-brand {
     text-transform: uppercase;
-    font-size: 32px;
+    font-size: 26px;
 }
 
 .carousel-item {
-  height: 450px;
+  height: 550px;
 }
 
 .carousel-image-1 {
-  background: url('../pics/image1.jpg');
+  background: url('../pics/humberto-santos-KDZW-_fMsuM-unsplash(1).jpg');
   background-size: cover;
 }
 
 .carousel-image-2 {
-  background: url('../pics/image2.jpg');
+background: url('../pics/bielsa1.jpg');
   background-size: cover;
 }
 
 .carousel-image-3 {
-  background: url('../pics/image3.jpg');
+  background: url('../pics/unplash3.jpg');
   background-size: cover;
 }
 
@@ -59,7 +59,7 @@ body {
 }
 
 #home-icons {
-    background-color: #dad0d0;
+    background-color: #f1f1f1;
 }
 
 #home-heading {
