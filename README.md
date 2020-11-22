@@ -1,4 +1,4 @@
-
+<br>
 # The Football Report
 This is website is part of the the Code Institute Full Stack Software Development course.. and is the final project of the course. It is the fourth project along the leaning curve and aimed to complete the course. The project represents a football newspaper site which allow page visitors to read a sample of free articles. If visitor register can have full access to the entire website articles. The next level of user experience an user subsription functionality which employ also the business logic of the project. By subscribing the user can  become an author by publishing an article with media. The subscription plan resembles a contribution that help the founders of the website to maintain and host the service.
 
@@ -9,7 +9,7 @@ The purpose of project is purely for educational usage although it provides read
 
 ## Table of Contents
 
-1.  [**User Experience**](#ux)
+1.  [**User Experience**](#user-experience)
 -  [**Project Goals**](#project-goals)
 -  [**User Goals**](#user-goals)
 -  [**User Stories**](#user-stories)
@@ -29,39 +29,26 @@ The purpose of project is purely for educational usage although it provides read
 9.  [**Disclaimer**](#disclaimer)
 
 
-# The Football Report
-This is website is part of the the Code Institute Full Stack Software Development course.. and is the final project of the course. It is the fourth project along the leaning  and aimed to complete the couse. The project represents a football newspaper site which allow page visitors to read a sample of free articles. If visitor register can have full access to the entire website articles. The next level of user experience an user subsription functionality which employ also the business logic of the project. By subscribing the user can  become an author by publishing an article with media. The subscription plan resembles a contribution that help the founders of the website to maintain and host the service.
-
-<hr>
-
-The purpose of project is purely for educational usage although it provides readings that I personally wrote throught my hobby as freelance football writre. The payment system module is build with the test version of Stripe and it is for testing only. It does not process real payments. Tests of the payment can be performed with credit card number 4242 4242 4242 4242. Please visit https://stripe.com/docs/testing to find more about the test card details.
-
-<div>
-
-## Table of Contents
-
-1.  [**User Experience**](#ux)
--  [**Project Goals**](#project-goals)
--  [**User Goals**](#user-goals)
--  [**User Stories**](#user-stories)
--  [**Design**](#design)
--  [**Wireframes**](#wireframes)
-
-  
-2.  [**Features**](#features)
--  [**Existing Features**](#existing-features)
--  [**Future Features**](#future-features)
-3.  [**Database Schema**](#database)
-4.  [**Technologies Used**](#technologies-used)
-5.  [**Testing**](#testing)
-6.  [**Code Notes**](#coding-notes)
-7.  [**Deployment**](#deployment)
-8.  [**Acknowledgements**](#acknowledgements)
-9.  [**Disclaimer**](#disclaimer)
-
 # User Experience
 
-All your files and folders are presented as a tree in the file explorer. You can switch from one to another by clicking a file in the tree.
+All your files and folders are presented as a tree in the file explorer. 
+You can switch from one to another by clicking a file in the tree.
+
+## Project Goals
+
+The project purpose is to build a Full Stack webiste to present the complete learning outcomes of the course. 
+The project is submitte for evaluation and entails a pass grade to graduate with universite certified diploma. The website backend is built with Django Framework and Python and thanks to Django has backend database (SQLite). 
+
+The website represents a football platform for analisys and creative writiting for author. Page visitors can read the sample of articles available. To access the full list of articles users have to registered which automatically create a profile page. Registered user can extend their experiece by writing and publishing their ownn articles. To publish an article needs to buy a subscription framed as a contribution purpose to keep the website going and paying for costs of hosting. The subscription logic uses small amounts to support the community support framing. To facilitate the e-commerce logic I will install Stripe which is payment processing software. 
+
+### Target customers
+
+People who love football as a sport and social event
+People who like writing.
+Freelance journalists
+
+### User Stories
+
 
 ## Rename a file
 

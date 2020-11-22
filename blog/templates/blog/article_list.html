@@ -15,23 +15,23 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <section id="blog" class="py-3">
-    
-      <div class="row">
+<div class="container mt-2 mb-5">    
         <div class="col">
         {% for article in articles %}
-        <article class="media content-section">
-          <img class="account-img img-thumbnail" src="{{ article.article_image.url }}">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2">{{ article.author }}</a>
-              <small class="text-muted">{{ article.date_posted|date:"F d, Y"  }}</small>
+
+        <div class="row">
+            <div class="col-md-4">
+                <img class="img-fluid" src="{{ article.article_image.url }}" href="{% url 'article_detail' article.id %}" />
             </div>
-            <hr>
-            <h2><a class="article-title text-dark" href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h2>
-          </div>
-        </article>
+            <div class="col-md-8 card-body">
+                <small class="ml-1 text-muted">Written by <strong>{{ article.author }}</strong> on <strong>{{ article.date_posted|date:"F d, Y"  }}</strong></small>
+                <hr class="mt-0">
+                <div class="card-title">
+                <h3><a class="ml-1 text-dark card-title" href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h3>
+            </div>
+        </div>
+        </div>
+        <hr class="w-auto">
         {% endfor %}
         {% if is_paginated %}
             {% if page_obj.has_previous %}
@@ -52,8 +52,7 @@
             {% endif %}
         {% endif %}
         </div>
-      </div>
-    </section>
+
     </div>
   
   

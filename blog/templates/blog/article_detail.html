@@ -1,23 +1,24 @@
 {% extends "base.html" %} {% block content %}
 <div class="container">
-  <div class="newspaper">
-    <div class="col-12">
+
+    <div class="col-12 card">
     <hr />
-    <h2 id="align"><a class="article-title text-dark" href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h2>
-    <img src="{{ article.article_image.url }}" />
-    <hr />
+        <div class="card-header"> <h2 class="text-bold" id="align"><p>{{ article.title }}</p></h2>
+    <img src="{{ article.article_image.url }}" class="img-fluid img-responsive" />
     </div>
-    <div class="col-12">
+    <div class="col-12 card-body">
     <div class="col-6">
       <img
-        class="author-img img-thumbnail rounded-circle"
+        class="author-img img-thumbnail rounded-circle mt-1"
         src="{{ user.profile.image.url }}"
       />
-          <small class="text-muted"
-            >Written by {{ article.author }} on {{ article.date_posted|date:"F d, Y" }}</small
-          >
+      <div class="row">
+          <p><small class="text-muted"
+            >Written by <strong>{{ article.author }}</strong> on <strong>{{ article.date_posted|date:"F d, Y" }}</strong></small
+          ></p>
       </div>
-      <hr />
+      </div>
+      <hr class="mt-1"/>
       <p class="article-content">{{ article.content|safe }}</p>
       <form method="post">
             <div class="form-group">
@@ -35,6 +36,6 @@
             </div>
           </form>
     </div>
-  </div>
+</div>
 </div>
 {% endblock %}
