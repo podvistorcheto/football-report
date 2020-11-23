@@ -176,14 +176,51 @@ To adopt and implemnt the features functuanalities this project employs Python, 
 
  ## Testing
 
+The entire development process was had time contstraints and meeting deadlines. Hence I tested every new piece of code thourougly. 
+When the submission version I perform some automated unit test and then a performance test report with the lighthouse feature in devtools for chrome.
+
 ### Automated Testing
 
+Unit Test
 
+| App Tested    | Test Info     | File Location | 
+| ------------- | ------------- | --------------| 
+| blog  | Testing the homepage view | blog/test_views.py  |
+| blog |  Testing showing the articles list  | blog/test_views.py  |
+| blog  | Testing click and view single article from the article list | blog/test_views.py  |
+| blog  | Testing update  functuanalities  | blog/test_views.py  |
+| blog  | Testing create new article functuanality  | blog/test_views.py  |
+| blog  | Testing delete existing article functuanality  | blog/test_views.py|
+| cart    | Test the login required to load the view_cart template| cart/test_views.py |
+| cart    | Tests if the cart renders correctly after login | cart/test_views.py |
+| checkout    | Tests if the form is validated correctly after correct user input | checkout/test_forms.py |
+| checkout    | Tests if the form gives error feedback in case the user input is incorrect | checkout/test_forms.py  |
+| profiles    | Tests if the signup page loads | profiles/test_views.py |
+| profiles    | Tests if the login page loads | profiles/test_views.py |
+| profiles    | Tests if the logout responds correctly | profiles/test_views.py |
+
+
+Unit Test
+
+The first report generated form the lighthouse tool showed some average results. After on each circle indicator the tool takes you
+to the several points that may be causing the reduced results. Here is the first test tesults
+
+image lighthouse3
+
+Looking into the error I adjusted the width and height of the image in the info section of home.html. 
+The second step was to remove redundant some JavaScript code. After this I added missing aria-labels
+for all <button> tags. After this ended up with results which a bit better.
+
+image lighthouse3
+
+While taking into the account the score in the performance indicator I didn't plan to proceed with refactoring further because
+the advice in the lighthouse tool indicated to remove the JQuery and some Stripe JavaScript code which is risky.
 
 ### Manual Testing
 
 
 
+### Bugs & Workarounds
 There are two types of synchronization and they can complement each other:
 
 - The workspace synchronization will sync all your files, folders and settings automatically. This will allow you to fetch your workspace on any other device.
