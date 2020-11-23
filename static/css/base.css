@@ -82,11 +82,11 @@ body {
   background-repeat: no-repeat;
   background-position: 0 -300px;
   text-align: center;
-  color: #fff;
+  color: #f1f1f1;
 }
 
 #video-play a {
-  color: #fff;
+  color: #f1f1f1;
 }
 
 .dark-overlay {
@@ -128,7 +128,7 @@ body {
 
 #main-footer {
     background: #000;
-    color: #fafafa;
+    color: #f1f1f1;
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -137,7 +137,7 @@ body {
 /* profile page styling */
 
 .content-section {
-  background: #ffffff;
+  background: #f1f1f1;
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;

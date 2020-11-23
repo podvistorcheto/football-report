@@ -36,10 +36,20 @@ You can switch from one to another by clicking a file in the tree.
 
 ## Project Goals
 
-The project purpose is to build a Full Stack webiste to present the complete learning outcomes of the course. 
-The project is submitte for evaluation and entails a pass grade to graduate with universite certified diploma. The website backend is built with Django Framework and Python and thanks to Django has backend database (SQLite). 
+The project purpose is to build a Full Stack webiste to present the complete learning 
+outcomes of the course. 
+The project is submitte for evaluation and entails a pass grade to graduate with 
+universite certified diploma. The website backend is built with Django Framework and Python and thanks to Django has backend database (SQLite). 
 
-The website represents a football platform for analisys and creative writiting for author. Page visitors can read the sample of articles available. To access the full list of articles users have to registered which automatically create a profile page. Registered user can extend their experiece by writing and publishing their ownn articles. To publish an article needs to buy a subscription framed as a contribution purpose to keep the website going and paying for costs of hosting. The subscription logic uses small amounts to support the community support framing. To facilitate the e-commerce logic I will install Stripe which is payment processing software. 
+The website represents a football platform for analisys and creative writiting 
+for author. Page visitors can read the sample of articles available. 
+To access the full list of articles users have to registered which automatically 
+create a profile page. Registered user can extend their experiece by writing 
+and publishing their ownn articles. To publish an article needs to buy a 
+subscription framed as a contribution purpose to keep the website going and 
+paying for costs of hosting. The subscription logic uses small amounts to 
+support the community support framing. To facilitate the e-commerce logic 
+I will install Stripe which is payment processing software. 
 
 ### Target customers
 
@@ -47,7 +57,6 @@ People who love football as a sport and social event
 People who like writing.
 Freelance journalists
 
-### User Stories
 
 ### User Stories
 
@@ -62,22 +71,118 @@ This website aims to provide the following:
 7. Users have access to shorlist with their own articles and subscripton history in the profile page
 8. After becoming authors, user are provided with option ot update and delete only their own aritcles.
 
-## Rename a file
+## Design
 
-You can rename the current file by clicking the file name in the navigation bar or by clicking the **Rename** button in the file explorer.
+### Wireframes
 
-## Delete a file
+WIrefames serve as the blueprints of the website design. Wireframe are added 
+\thanks to [https://balsamiq.com/](https://balsamiq.com/) tool recommended by 
+the Code Institute. The blue prints and can be found in the [/documentation]() 
+folder at []() . As I was changing the project and style idea much before I 
+choose this project all my blueprints were done on hand wiht pencil and paper 
+and added after the page was coming though. During the proframming the style 
+remaind the same with little changes, Some of the page desings were simplified 
+in the final design changes to utilise space and better user interface on mobile.
 
-You can delete the current file by clicking the **Remove** button in the file explorer. The file will be moved into the **Trash** folder and automatically deleted after 7 days of inactivity.
+### Responsive Design
 
-## Export a file
+The webisite is based on the Bootstrap front-end-framework availabel at[  
+getbootstrap.com](https://getbootstrap.com/). 
+Such framework allows to implement key design features and keep the them 
+responsive on different screen sizes and mobile view. 
+I used Firefox and Chrome for the programming part where the design 
+stacked well eventually after constatly checking the devtools. 
+The website is responsive on other browsers like Safari, Edge and Opera. 
+It stack well mobile screens ranging between 320x568 to 414x736 
+where the navigation bar shring to a hamburger dropdown menu .
 
-You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
+### Colours
+
+![#757575](https://placehold.it/15/000/000000?text=+) ***#000***
+![#a8a9ad](https://placehold.it/15/343a40/000000?text=+) ***#a8a9ad*** 
+![#fafafa](https://placehold.it/15/f1f1f1/000000?text=+) ***#f1f1f1***  
+At the start of the project I used the defaul pure white background color for the body, later decided to switch to very light grey to reduce the lightning of the page and better visual relaxation for the user. The styling of the buttons follows the bootstrap4 color convention for danger, success, secondary and so forth.
 
 
-# Synchronization
+###  Fonts and Icons
 
-Synchronization is one of the biggest features of StackEdit. It enables you to synchronize any file in your workspace with other files stored in your **Google Drive**, your **Dropbox** and your **GitHub** accounts. This allows you to keep writing on other devices, collaborate with people you share the file with, integrate easily into your workflow... The synchronization mechanism takes place every minute in the background, downloading, merging, and uploading file modifications.
+My choice for the 'Inter' (https://fonts.google.com/specimen/Inter?sidebar.open=true&selection.family=Interstems)
+from the idea to be light and and not heavy for reading.
+The icons form the Font Awesome library [fontawesome.com](https://fontawesome.com/). 
+I tried to use as less as icons as possible in the desing because the website 
+is focused and meant as writing platform that resembles a newspaper website. 
+Using many icons would perceive the design style as more technical than it 
+should be for these website types.
+
+
+## Features
+
+### Implemented Feautures
+
+1. Landing page with image slide and inspirational video message.
+2. Login and signup authnetication functionaliy
+3. CRUD model so user can create, retreive, update and delete their Articles
+4. User withe registered profiles can chosse subscription and author articles and take advantage fromt the CRUD model.
+
+
+### Feautures To Implement In the Future
+
+1. A start or score rating under each article 
+2. Social media share buttons for the articles
+
+## Database
+
+During the development process the date is stored thanks to the Django builtin SQLite datebase. In the deployment phase the datebase is imported in Postrgres to reach to the production phase via Heroku.
+
+### Datebase Schema
+
+Here is my Database pattern, Thanks to this [advisory article](https://www.freecodecamp.org/news/how-to-create-database-schemas-quickly-and-intuitively-with-dbdesigner-2f4adf79a29d/) I used  https://www.dbdesigner.net/ to generate more clear and visual presentation of the datebase logic. 
+
+
+# Technologies Used
+
+
+To adopt and implemnt the features functuanalities this project employs Python, Django, Postgres, SQLite, HTML, CSS and JavaScript technologies.
+
+-   [Python](https://www.python.org/)  The Django framework project active language  **Python 3.8**  is uded to develop the website.
+
+-   [Unsplash API ](https://unsplash.com/) to generate the random photo gallery for the home page and the about page. The gallery theme is football.
+
+-   [JQuery](https://jquery.com/) to make the video modal working and other responsive features like the navbar hamburger menu.
+- 
+-   [[CKEditor 5](https://ckeditor.com/ckeditor-5)  The project uses  **CKEditor 5**  as part of the Article model to make the text field better.
+    
+-   [Bootstrap 4](https://getbootstrap.com/)  to enhance website design responsivess over different screen sizes.
+    
+-   **HTML 5, CSS3 and JavaScript** are used throughout to improve the website structure and functionality.
+    
+-   [Google Fonts](https://fonts.google.com/)  to style the fonts.
+    
+-   [Django](https://www.djangoproject.com/)  The website is build from the  **Django**  framework.
+    
+-   [SQLite](https://www.sqlite.org/)  comes as built in feature in the Django Framework. It is used during the development phase
+    
+-   [Postgres](https://www.postgresql.org/)  The project utilizes **Postgres**  relational database to store database in the production phase.
+    
+-   [StackEdit](https://stackedit.io/)  used for building the readme file
+    
+-   [Stripe](https://www.stripe.com/)  facilitates the payments direclty from the page, 
+
+-   [GitHub](https://github.com/) is the source code remote repository store the source code in a repository. The repository can be cloned or downloaded from here. Check  [Deployment]()  section
+
+-   [Heroku](https://www.heroku.com) is used to host the project and make it available online with a original url.
+
+-   [Amazon Web Services](https://aws.amazon.com/education/awseducate/) it comes after the delployment phase with Heroku. Hosting the website from Amazon Web Services' cloud is the last step of the deployment phase and brings the project in the production phase.
+
+ ## Testing
+
+### Automated Testing
+
+
+
+### Manual Testing
+
+
 
 There are two types of synchronization and they can complement each other:
 
