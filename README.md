@@ -218,6 +218,25 @@ the advice in the lighthouse tool indicated to remove the JQuery and some Stripe
 
 ### Manual Testing
 
+This manual testing phase is comprised by manually checkin consistency between project goals and the user stories and check for bugs.
+
+| User Story Tested    | Result     | Ready | 
+| ------------- | ------------- | --------------| 
+| User can access the landing page | Landing page loads correctly. | &#649c2c;  |
+| blog |  Testing showing the articles list  | blog/test_views.py  |
+| blog  | Testing click and view single article from the article list | blog/test_views.py  |
+| blog  | Testing update  functuanalities  | blog/test_views.py  |
+| blog  | Testing create new article functuanality  | blog/test_views.py  |
+| blog  | Testing delete existing article functuanality  | blog/test_views.py|
+| cart    | Test the login required to load the view_cart template| cart/test_views.py |
+| cart    | Tests if the cart renders correctly after login | cart/test_views.py |
+| checkout    | Tests if the form is validated correctly after correct user input | checkout/test_forms.py |
+| checkout    | Tests if the form gives error feedback in case the user input is incorrect | checkout/test_forms.py  |
+| profiles    | Tests if the signup page loads | profiles/test_views.py |
+| profiles    | Tests if the login page loads | profiles/test_views.py |
+| profiles    | Tests if the logout responds correctly | profiles/test_views.py |
+
+
 
 
 ### Bugs & Workarounds
