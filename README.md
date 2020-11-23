@@ -181,6 +181,7 @@ During the development process the date is stored thanks to the Django builtin S
 
 Here is my Database pattern, Thanks to this [advisory article](https://www.freecodecamp.org/news/how-to-create-database-schemas-quickly-and-intuitively-with-dbdesigner-2f4adf79a29d/) I used  https://www.dbdesigner.net/ to generate more clear and visual presentation of the datebase logic. 
 
+<a  href="/documnets/db_schema.png"  target="_blank"><img  src="/documents/db_schema.png"  alt="TFR db_schema"/></a>
 
 # Technologies Used
 
@@ -248,13 +249,13 @@ Unit Test
 The first report generated form the lighthouse tool showed some average results. After on each circle indicator the tool takes you
 to the several points that may be causing the reduced results. Here is the first test tesults
 
-image lighthouse3
+<a  href="/documnets/lighthouse1.PNG"  target="_blank"><img  src="/documents/lighthouse1.PNG"  alt="dev_tools_one"/></a>
 
 Looking into the error I adjusted the width and height of the image in the info section of home.html. 
 The second step was to remove redundant some JavaScript code. After this I added missing aria-labels
-for all <button> tags. After this ended up with results which a bit better.
+for all ```<button>``` tags. After this ended up with results which a bit better.
 
-image lighthouse3
+<a  href="/documnets/lighthouse2.PNG"  target="_blank"><img  src="/documents/lighthouse2.PNG"  alt="dev_tools_one"/></a>
 
 While taking into the account the score in the performance indicator I didn't plan to proceed with refactoring further because
 the advice in the lighthouse tool indicated to remove the JQuery and some Stripe JavaScript code which is risky.
@@ -312,7 +313,15 @@ Logout Page | User can choose to logout where is asked to confirm the sign out i
 
 After the first end-to-end testing phase was drafted I identified several issues:
 
-1. User cannot access the samplae articles from the slide page.
+1. User cannot access the samplae articles from the slider page.
+    Solution: added small piece of url code simply to specify the argument after the url. 
+    ~~~
+    <a href="{% url 'article_detail' 41 %}" class="btn btn-info btn-lg">Read Now</a>
+    ~~~
+
+    After trying many much more complicated arguments a tutor from Code Institute 
+    named Scott deserves the credtit for pointing me in the right direction
+
 2. Non-logged user cannot access the report page - fixed in the testing phase 
     with simple loop which redirect to login page in if user did not pass authnetication
 
@@ -340,8 +349,6 @@ After the first end-to-end testing phase was drafted I identified several issues
 
 - The file synchronization will keep one file of the workspace synced with one or multiple files in **Google Drive**, **Dropbox** or **GitHub**.
 	> Before starting to sync files, you must link an account in the **Synchronize** sub-menu.
-
-
 
 
 ## UML diagrams
