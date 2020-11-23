@@ -35,12 +35,12 @@ body {
 }
 
 .carousel-item {
-  height: 600px;
+  height: 450px;
   
 }
 
 .carousel-image-1 {
-  background: url('../pics/humberto-santos-KDZW-_fMsuM-unsplash(1).jpg');
+  background: url('../pics/landing.jpg');
   background-size: cover;
   width: 100%;
 }
