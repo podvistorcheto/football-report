@@ -183,6 +183,10 @@ Here is my Database pattern, Thanks to this [advisory article](https://www.freec
 
 <a  href="/documnets/db_schema.png"  target="_blank"><img  src="/documents/db_schema.png"  alt="TFR db_schema"/></a>
 
+To explain the database pattern I will simply follow the user logic. First the the profile needs to exists in order to attach package. 
+To attach the package user needs to get a subscription data model. The subscribtion data model is connected to the package line item with through the Foreign Key.
+Once the package is purchase gets attached to the profile through its Foreing Key user. Similarly the packaline item get attached to the packege via its Foreing Key order.
+
 # Technologies Used
 
 
