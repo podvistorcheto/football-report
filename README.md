@@ -266,8 +266,8 @@ and the user stories and check for bugs. While testing the user stories I tried 
 the kanban method to prioritise and not stuck on one of the stories, thus saving time and 
 limit bottlenecks. 
 
-| User Story Tested |  Result| Ready |
-|--|--|--|
+| User Story Tested | Result   | Ready     |
+| ----------------- | -------- | --------- |
 | User can access the landing page | Landing page loads correctly  the slider, video modal, gallery access.  Navbar shrinks responsively  |  Yes|
 | User can access the sample articles from the slider | NO  |  NO|
 | The page is restricted correctly for non-logged user access the sample articles | NO  |  NO|
@@ -307,11 +307,33 @@ Logout Page | User can choose to logout where is asked to confirm the sign out i
 
 
 
-
-
-
 ### Bugs & Workarounds
-There are two types of synchronization and they can complement each other:
+
+
+After the first end-to-end testing phase was drafted I identified several issues:
+
+1. User cannot access the samplae articles from the slide page.
+2. Non-logged user cannot access the report page - fixed in the testing phase 
+    with simple loop which redirect to login page in if user did not pass authnetication
+
+    ~~~
+    {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a href="{% url 'article_list' %}" class="nav-link">Reports</a>
+            </li>
+    {% else %}
+            <li class="nav-item">
+                <a href="{% url 'account_login' %}" class="nav-link">Reports</a>
+            </li>
+    {% endif %}
+    ~~~
+    
+3. Emails are sent successfully but only in the console not send outside Django
+4. Picture artice doesnot sync well with desktop screen unless is 1100x700
+5. Update and delete buttons are shown on every article detail view. Though there 
+    is specific funtion in the class base view which block user who is not-an author 
+    makes any changes to the page
+
 
 - The workspace synchronization will sync all your files, folders and settings automatically. This will allow you to fetch your workspace on any other device.
 	> To start syncing your workspace, just sign in with Google in the menu.
