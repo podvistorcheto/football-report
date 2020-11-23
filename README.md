@@ -49,6 +49,18 @@ Freelance journalists
 
 ### User Stories
 
+### User Stories
+
+This website aims to provide the following:
+
+1. Allow users to visit the page and have access to the sampled articles and media without being registered.
+2. Non-registered users can view the about page, motivation page, landing page and pricing page. 
+3. Provide users with signup option
+4. After registration users has access to to the full webpage content
+5. User have their own profile page with a default picture setup.
+6. After logged in users are able to pick subscription plan, add it to their shopping card and submit a payment to become authors and publish their own articles.
+7. Users have access to shorlist with their own articles and subscripton history in the profile page
+8. After becoming authors, user are provided with option ot update and delete only their own aritcles.
 
 ## Rename a file
 

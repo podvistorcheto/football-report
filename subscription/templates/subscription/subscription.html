@@ -7,8 +7,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 m-auto text-center">
-          <h1>Our Subscrptions</h1>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas, temporibus?</p>
+          <h1>Subscrptions & Prices</h1>
         </div>
       </div>
     </div>
@@ -31,25 +30,25 @@
               <p class="card-text">{{ item.description}}</p>
               <ul class="list-group">
                 <li class="list-group-item">
-                  <i class="fas fa-check"></i> Feature One
+                  <i class="fas fa-check"></i> Full website experience
                 </li>
                 <li class="list-group-item">
-                  <i class="fas fa-check"></i> Feature Two
+                  <i class="fas fa-check"></i> Community support
                 </li>
                 <li class="list-group-item">
-                  <i class="fas fa-check"></i> Feature Three
+                  <i class="fas fa-check"></i> Become an author
                 </li>
                 <li class="list-group-item">
-                  <i class="fas fa-check"></i> Feature Four
+                  <i class="fas fa-check"></i> Choose images
                 </li>
                 <li class="list-group-item">
-                  <i class="fas fa-check"></i> Feature Five
+                  <i class="fas fa-check"></i> Publish articles
                 </li>
               </ul>
               {% if user.is_authenticated %}
                     <a href="{% url 'add_to_cart' item.id %}" class="btn btn-danger btn-block mt-2">Get It</a>
               {% else %}
-                    <a href="#" class="btn btn-danger btn-block mt-2">Add to Card ( You must be logged In)</a>
+                    <a href="{% url 'account_login' %}" class="btn btn-danger btn-block mt-2">Add to Card ( You must be logged In)</a>
               {% endif %}
             </div>
           </div>

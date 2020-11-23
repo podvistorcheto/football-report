@@ -28,8 +28,8 @@
             </div>
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-danger" type="submit">Confirm Removal</button>
-                <a class="btn btn-outline-secondary" href="{% url 'article_detail' object.id %}">Cancel</a>
+                <button class="btn btn-outline-danger" type="submit" aria-label="Delete">Confirm Removal</button>
+                <a class="btn btn-outline-secondary" href="{% url 'article_detail' object.id %}" aria-label="Cancel">Cancel</a>
             </div>
         </form>
     </div>

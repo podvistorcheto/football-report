@@ -3,18 +3,6 @@ $(".carousel").carousel({
   interval: 6000,
   pause: "hover",
 });
-$(".slider").slick({
-  infinite: true,
-  slideToShow: 1,
-  slideToScroll: 1,
-});
-// console.log("test")
-// Lightbox Init
-$(document).on("click", '[data-toggle="lightbox"]', function (event) {
-  event.preventDefault();
-  $(this).ekkoLightbox();
-});
-
 // Video Play
 $(function () {
   // Auto play modal video from stackoverflow
