@@ -439,5 +439,19 @@ body {
     color: #fafafa;
 }
 
-/* test */
+/* navbar media query to shrink belov 768px */
 
+@media (min-width: 768px) {
+
+.navbar-fixed-top .navbar-collapse,
+.navbar-static-top .navbar-collapse,
+.navbar-fixed-bottom .navbar-collapse {
+    padding-left: 0;
+    padding-right: 0;
+      }
+  }
+
+.navbar-fixed-top .navbar-collapse,
+.navbar-fixed-bottom .navbar-collapse {
+    max-height: 340px;
+}

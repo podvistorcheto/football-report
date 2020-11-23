@@ -58,7 +58,7 @@ People who like writing.
 Freelance journalists
 
 
-### User Stories
+### User Access
 
 This website aims to provide the following:
 
@@ -70,6 +70,49 @@ This website aims to provide the following:
 6. After logged in users are able to pick subscription plan, add it to their shopping card and submit a payment to become authors and publish their own articles.
 7. Users have access to shorlist with their own articles and subscripton history in the profile page
 8. After becoming authors, user are provided with option ot update and delete only their own aritcles.
+
+
+### User Stories
+
+Non-registered users:
+
+1. As a non-logged in user I want to see the landing page media and browse over the sample articles provided in the carousel slider.
+2. As a non-logged user I wish to find more about the philosophy behind the website, check the pricing plans.
+3. As non-logged in user I can either signup or login to the page if I already have an account.
+
+Registered users:
+
+1. To able to login and logout from the website
+2. After registration I can access my profile page with basic profile info and auto added profile image.
+3. After registration I can read all the article reports published in access new articles reports after pubslished.
+4. In the articles list can view the article card with date published, name of the author and article image thumbnail.
+5. I want articles shown per page to be limited to 3 and rest of the articles list be accessed with a pagination.
+6. The article card in the article list has to provide user with links ot view the full article page by clickig either the title or the image thumbnail.
+7. Article detailed page should present the full article picture, date published with author info, and the entire text of the article
+8. After registration I can choose a subscribtion plan to publish my own articles.
+9. After choosing the subscription plan I would like to see the chosen subscriptio plan in a shooping card with a option to remove or proceed to checkout page. 
+10. If the subscription is removed  users can return back to the homepage.
+11. Users can proceed to the checkout page where they should view the subscription plan details.
+12. In the checkout page user can submit theire payment details
+13. Users can see once again the price of the subsription and the amout theire cart will be charged.
+14. Once in the checkout the user needs to have the option button to return to the shopping cart page and adjust it.
+15. To be able to complete the purchase for the subscription plan directly to site with a valid credit card details 
+
+Subcription Users:
+
+1. After a successfull payment there I can view the subscription added to a subscription history in my profile page
+2. After successfull payment users can see the button for publishing articles in their profile page.
+3. In publish article page users can add title, photo and text content to the article.
+4. In the publish article users can check their text and add additional content using the rich text editor.
+5. If users forget to provide article picture the website provides default picture themed according to the website design.
+6. After clicking the publish article button I can check and see the article published in the reports page.
+7. After publishing the article I can see it also in the list with published articles in my profile page.
+8. In the reports page I can access and read both my articles and other user articles.
+9.  If I choose to read and article which I authored then I can update and delete the article, but only if I am the author.
+10. In the update view of the page I can change the title, picture and text of the article.
+11. In the delete view I am asked to confirm the removal or cancel the removal. 
+
+
 
 ## Design
 
@@ -218,23 +261,51 @@ the advice in the lighthouse tool indicated to remove the JQuery and some Stripe
 
 ### Manual Testing
 
-This manual testing phase is comprised by manually checkin consistency between project goals and the user stories and check for bugs.
+This manual testing phase is comprised by manually checkin consistency between project goals 
+and the user stories and check for bugs. While testing the user stories I tried to stick to 
+the kanban method to prioritise and not stuck on one of the stories, thus saving time and 
+limit bottlenecks. 
 
-| User Story Tested    | Result     | Ready | 
-| ------------- | ------------- | --------------| 
-| User can access the landing page | Landing page loads correctly. | &#649c2c;  |
-| blog |  Testing showing the articles list  | blog/test_views.py  |
-| blog  | Testing click and view single article from the article list | blog/test_views.py  |
-| blog  | Testing update  functuanalities  | blog/test_views.py  |
-| blog  | Testing create new article functuanality  | blog/test_views.py  |
-| blog  | Testing delete existing article functuanality  | blog/test_views.py|
-| cart    | Test the login required to load the view_cart template| cart/test_views.py |
-| cart    | Tests if the cart renders correctly after login | cart/test_views.py |
-| checkout    | Tests if the form is validated correctly after correct user input | checkout/test_forms.py |
-| checkout    | Tests if the form gives error feedback in case the user input is incorrect | checkout/test_forms.py  |
-| profiles    | Tests if the signup page loads | profiles/test_views.py |
-| profiles    | Tests if the login page loads | profiles/test_views.py |
-| profiles    | Tests if the logout responds correctly | profiles/test_views.py |
+| User Story Tested |  Result| Ready |
+|--|--|--|
+| User can access the landing page | Landing page loads correctly  the slider, video modal, gallery access.  Navbar shrinks responsively  |  Yes|
+| User can access the sample articles from the slider | NO  |  NO|
+| The page is restricted correctly for non-logged user access the sample articles | NO  |  NO|
+| User can access the about page without being logged in | Page displays withount error and consistently on mobile and desktop  |  Yes|
+| User cannnot access the articles list without being logged in | When not logged in the user is prompter to login to access the full list of articles. Page displays without error and consistently on mobile and desktop  |  Yes|
+User clearly can see pricing page | The page loads with three price categories and if user click on add to cart leade to login page| Yes |
+User can load the pages for the login and signup | The login and signup pages load with no errors| Yes |
+Signup Page | The sing up page function correctly and sends a link to the verification email to listed email. Email is send in the console for the moment| Yes |
+Login Page| User can login successfully with valid username and password and the page shows a toast message for a successful login. |Yes|
+Sending Emails| No reset password email, no email verification sent | NO
+
+| Logged In User Story Tested |  Result| Ready |
+|--|--|--|
+| User can access the reports page when logged in | Reports page loads correctly the pagination active and displaying three articles per page both on mobile and desktop  |  Yes|
+Article List Page |  Eahc article card dispays responsively with thumbnail picture, date and author of the article plus title of the report | Yes
+Access to Article Detailed Page | User can either click on the image or the article title and will be taken to the article detail page | Yes |
+Article Detailed Page | the full article picture, date published with author info, and the entire text of the article |
+| User can access the pricing page | Pricing page loads without error and cuser can click on get it to proceed to checkout page |  Yes|
+Cart page | User can see the summary of the chosen subscription with option to proceeds to checkout and remove option available too |
+Remove the Subscription from the Cart | Partner can successfully remove the description before proceeding to checkout (NO BUTTON AVAILABLE TO GO BACK TO SUBSCRIPTIONS | Yes |
+Checkout Page | The checkout page loads without error with two colums. In the left column is purchase form details. In the right columns is the subscription summary | Yes |
+Checkout Page Purchase | User can fill out the the form to submit the payment. All fields are required. | Yes |  
+Charges Checkout Page | User can receive the price at three places in the checkout page. It dispays an alert message how much the credit card will be charged right next to the complete purchase button. User can return back and adjust the card too. | Yes |
+Checkout Success Page | After successfull payment the user is redirected to a Payment successfull page with summary of the purchase and the unique ID of the subscription. Confirmation email sent.| Yes |
+
+
+
+| Subcribed User Story |  Result| Ready |
+|--|--|--|
+Profile Page | If there is payment confirmation users with subscription can view their subscription in the order history| Yes |
+Profile Page Details | If payment is successfull users now have access to an active button to publish article located in the profile card| Yes |
+Publish Article Page | Page load successfully and users can check upload article with a title, picture, text content and add additional text content using the rich text editor.| Yes 
+Article List | User can see the article on the top of the list sorted by last date published. PICTURE ISSUE NOT FIXED | NO |
+Update and Delete Page | User who authored the article can update all submitted details or remove it. The option is restricted for the authors of the article only | Yes |
+Article Delete Confirmation | If user goes for the delete option there is confirmation page with confirm and cancel option. If confirms the user is redirected to the home page. Clicking the cancel button returns the user to the article view page. | Yes |
+Logout Page | User can choose to logout where is asked to confirm the sign out intention. If confirmed it redirects to the home page | Yes |
+
+
 
 
 
@@ -248,80 +319,7 @@ There are two types of synchronization and they can complement each other:
 - The file synchronization will keep one file of the workspace synced with one or multiple files in **Google Drive**, **Dropbox** or **GitHub**.
 	> Before starting to sync files, you must link an account in the **Synchronize** sub-menu.
 
-## Open a file
 
-You can open a file from **Google Drive**, **Dropbox** or **GitHub** by opening the **Synchronize** sub-menu and clicking **Open from**. Once opened in the workspace, any modification in the file will be automatically synced.
-
-## Save a file
-
-You can save any file of the workspace to **Google Drive**, **Dropbox** or **GitHub** by opening the **Synchronize** sub-menu and clicking **Save on**. Even if a file in the workspace is already synced, you can save it to another location. StackEdit can sync one file with multiple locations and accounts.
-
-## Synchronize a file
-
-Once your file is linked to a synchronized location, StackEdit will periodically synchronize it by downloading/uploading any modification. A merge will be performed if necessary and conflicts will be resolved.
-
-If you just have modified your file and you want to force syncing, click the **Synchronize now** button in the navigation bar.
-
-> **Note:** The **Synchronize now** button is disabled if you have no file to synchronize.
-
-## Manage file synchronization
-
-Since one file can be synced with multiple locations, you can list and manage synchronized locations by clicking **File synchronization** in the **Synchronize** sub-menu. This allows you to list and remove synchronized locations that are linked to your file.
-
-
-# Publication
-
-Publishing in StackEdit makes it simple for you to publish online your files. Once you're happy with a file, you can publish it to different hosting platforms like **Blogger**, **Dropbox**, **Gist**, **GitHub**, **Google Drive**, **WordPress** and **Zendesk**. With [Handlebars templates](http://handlebarsjs.com/), you have full control over what you export.
-
-> Before starting to publish, you must link an account in the **Publish** sub-menu.
-
-## Publish a File
-
-You can publish your file by opening the **Publish** sub-menu and by clicking **Publish to**. For some locations, you can choose between the following formats:
-
-- Markdown: publish the Markdown text on a website that can interpret it (**GitHub** for instance),
-- HTML: publish the file converted to HTML via a Handlebars template (on a blog for example).
-
-## Update a publication
-
-After publishing, StackEdit keeps your file linked to that publication which makes it easy for you to re-publish it. Once you have modified your file and you want to update your publication, click on the **Publish now** button in the navigation bar.
-
-> **Note:** The **Publish now** button is disabled if your file has not been published yet.
-
-## Manage file publication
-
-Since one file can be published to multiple locations, you can list and manage publish locations by clicking **File publication** in the **Publish** sub-menu. This allows you to list and remove publication locations that are linked to your file.
-
-
-# Markdown extensions
-
-StackEdit extends the standard Markdown syntax by adding extra **Markdown extensions**, providing you with some nice features.
-
-> **ProTip:** You can disable any **Markdown extension** in the **File properties** dialog.
-
-
-## SmartyPants
-
-SmartyPants converts ASCII punctuation characters into "smart" typographic punctuation HTML entities. For example:
-
-|                |ASCII                          |HTML                         |
-|----------------|-------------------------------|-----------------------------|
-|Single backticks|`'Isn't this fun?'`            |'Isn't this fun?'            |
-|Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
-|Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
-
-
-## KaTeX
-
-You can render LaTeX mathematical expressions using [KaTeX](https://khan.github.io/KaTeX/):
-
-The *Gamma function* satisfying $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ is via the Euler integral
-
-$$
-\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
-$$
-
-> You can find more information about **LaTeX** mathematical expressions [here](http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference).
 
 
 ## UML diagrams
@@ -351,44 +349,3 @@ C --> D
 ```
 
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
-
-## Gitpod Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: *Make Public*,
-
-Another blue button should appear to click: *Open Browser*.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: *Make Public*,
-
-Another blue button should appear to click: *Open Browser*.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-## Updates Since The Instructional Video
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!

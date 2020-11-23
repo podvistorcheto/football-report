@@ -60,9 +60,15 @@
             <li class="nav-item">
                 <a href="{% url 'about' %}" class="nav-link">About</a>
             </li>
+            {% if user.is_authenticated %}
             <li class="nav-item">
                 <a href="{% url 'article_list' %}" class="nav-link">Reports</a>
             </li>
+            {% else %}
+            <li class="nav-item">
+                <a href="{% url 'account_login' %}" class="nav-link">Reports</a>
+            </li>
+            {% endif %}
             <li class="nav-item">
                 <a href="{% url 'subscription' %}" class="nav-link">Pricing</a>
             </li>
