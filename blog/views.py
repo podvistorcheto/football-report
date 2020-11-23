@@ -38,11 +38,7 @@ class UserArticleListView(ListView):
     template_name = 'blog/user_articles.html'
     context_object_name = 'articles'
     paginate_by = 3
-    """
-    def get_queryset(self):
-        user = get_object_or_404(User, username=self.kwargs.get('username'))
-        return Article.objects.filter(author=user).order_by('-date_posted')
-    """
+
 
 class ArticleDetailView(DetailView):
     model = Article
@@ -95,7 +91,3 @@ class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         else:
             return False
-
-
-def newsletter(request):
-    return render(request, 'blog/newsletter.html', {'title': 'Blog'})
