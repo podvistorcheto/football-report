@@ -1,48 +1,47 @@
 {% extends "base.html" %} {% load static %} {% block page_header %}
 <header id="page-header">
   <div class="container">
-        <div class="row profile-wrap">
-            <div class="col-md-6 text-center">
-                <div class="content-section">
-                <div class="media profile-wrap">
-                    <img
-                    class="account-img img-thumbnail"
-                    src="{{ user.profile.image.url }}"
-                    />
-                    <div class="media-body">
-                        <h2 class="account-heading">{{ user.username }}</h2>
-                        <p class="text-secondary">{{ user.email }}</p>
-                        <div>
-                        {% if user.is_authenticated and orders %}
-                            <form method="POST">
-                            {% csrf_token %}
-                                <div class="form-group">
-                                    <a class="btn btn-small btn-outline-secondary" href="{% url 'article_create' %}">publish new article</a>
-                                </div> 
-                            </form>
-                        {% endif %}
-                        </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-        </div>
+        
   </div>
 </header>
 {% endblock %} {% block content %}
 <div class="container">
 <section class="py-3 about">
-  
+    
     
     <div class="row">
       <div class="col-12 col-lg-6">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-4">
+                <img
+                    class="account-img img-thumbnail"
+                    src="{{ user.profile.image.url }}"
+                    />
+                </div>
+                <div class="col-md-8">
+                    <h4 class="account-heading">{{ user.username }}</h4>
+                    <p class="text-secondary">{{ user.email }}</p>
+                
+                {% if user.is_authenticated and orders %}
+                            <form method="POST">
+                            {% csrf_token %}
+                                <div class="form-group">
+                                    <a class="btn btn-small btn-outline-success" href="{% url 'article_create' %}">publish new article</a>
+                                </div> 
+                            </form>
+                        {% endif %}
+                </div>
+            </div>
+        
+        </div>
+
         <p class="text-muted logo-font">Published Articles</p>
         {% for article in articles %}
         <article class="media content-section">
           
           <div class="media-body">
             <div class="article-metadata">
-              <a class="mr-2 text-black">{{ article.author }}</a>
               <small class="text-muted">{{ article.date_posted|date:"F d, Y"  }}</small>
             </div>
             <h2><a class="article-title text-dark" href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h2>
@@ -55,7 +54,6 @@
         <table class="table table-sm table-borderless">
                         <thead>
                             <tr>
-                                <th>Subscriptions</th>
                                 <th>Order Number</th>
                                 <th>Start Date</th>
                                 <th>Price</th>
@@ -64,16 +62,14 @@
                         <tbody>
                             {% for order in orders %}
                                 <tr>
-                                <td>{{ order.user }}</td>
-                                <!-- {% for subscrption in subscriptions %}
-                                    <td>{{ subscrption }}</td>
-                                    {% endfor %} -->
                                     <td>
                                     {{ order.order_number|truncatechars:10 }}
                                     </td>
                                     <td>{{ order.date }}</td>
-                                    <td>&euro;{{ order.price }}</td>
+                                    <td>&euro;{{ order.price }}<hr></td>
+                                    
                                 </tr>
+                                
                             {% endfor %}
                         </tbody>
                     </table>

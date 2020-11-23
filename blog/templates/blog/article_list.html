@@ -21,7 +21,7 @@
 
         <div class="row">
             <div class="col-md-4">
-                <img class="img-fluid" src="{{ article.article_image.url }}" href="{% url 'article_detail' article.id %}" />
+                <a href="{% url 'article_detail' article.id %}"><img class="img-fluid" src="{{ article.article_image.url }}"/></a>
             </div>
             <div class="col-md-8 card-body">
                 <small class="ml-1 text-muted">Written by <strong>{{ article.author }}</strong> on <strong>{{ article.date_posted|date:"F d, Y"  }}</strong></small>
