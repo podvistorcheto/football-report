@@ -318,7 +318,7 @@ Logout Page | User can choose to logout where is asked to confirm the sign out i
 After the first end-to-end testing phase was drafted I identified several issues:
 
 1. User cannot access the samplae articles from the slider page.
-    Solution: added small piece of url code simply to specify the argument after the url. 
+    Fix: added small piece of url code simply to specify the argument after the url. 
     ~~~
     <a href="{% url 'article_detail' 41 %}" class="btn btn-info btn-lg">Read Now</a>
     ~~~
@@ -341,21 +341,37 @@ After the first end-to-end testing phase was drafted I identified several issues
     {% endif %}
     ~~~
     
-3. Emails are sent successfully but only in the console not send outside Django
+3. Mobile view lacks respo for the home page, and titles and link of the sample article do not materialize. 
+    Fix:  added some media queries in the base.css file:
+    ~~~
+    @media only screen and (max-width: 600px) {
+    .display-3 {
+        font-size: 36px;
+    }
+    }
+
+    @media only screen and (max-width: 600px) {
+    .mobile {
+        display: none;
+    }
+    }
+
+    @media only screen and (max-width: 600px) {
+    #gallery {
+        display: none;
+    }
+    }
+    ~~~
+
+4. Emails are sent successfully but only in the console not send outside Django
 4. Picture artice doesnot sync well with desktop screen unless is 1100x700
 5. Update and delete buttons are shown on every article detail view. Though there 
     is specific funtion in the class base view which block user who is not-an author 
     makes any changes to the page
 
 
-- The workspace synchronization will sync all your files, folders and settings automatically. This will allow you to fetch your workspace on any other device.
-	> To start syncing your workspace, just sign in with Google in the menu.
 
-- The file synchronization will keep one file of the workspace synced with one or multiple files in **Google Drive**, **Dropbox** or **GitHub**.
-	> Before starting to sync files, you must link an account in the **Synchronize** sub-menu.
-
-
-## UML diagrams
+## Deployment
 
 You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/). For example, this will produce a sequence diagram:
 
@@ -381,4 +397,12 @@ B --> D{Rhombus}
 C --> D
 ```
 
+## Credits
 
+## Code
+
+## Content and Media
+
+## Acknowledgements
+
+## Disclaimer

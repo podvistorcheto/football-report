@@ -8,10 +8,12 @@
     </div>
     <div class="col-12 card-body">
     <div class="col-6">
+    {% if user.is_authenticated %}
       <img
         class="author-img img-thumbnail rounded-circle mt-1"
         src="{{ user.profile.image.url }}"
       />
+    {% endif %}
       <div class="row">
           <p><small class="text-muted"
             >Written by <strong>{{ article.author }}</strong> on <strong>{{ article.date_posted|date:"F d, Y" }}</strong></small
@@ -20,6 +22,7 @@
       </div>
       <hr class="mt-1"/>
       <p class="article-content">{{ article.content|safe }}</p>
+      {% if article.author == user.profile %}
       <form method="post">
             <div class="form-group">
               {% csrf_token %}
@@ -35,6 +38,7 @@
               >
             </div>
           </form>
+        {% endif %}
     </div>
 </div>
 </div>
