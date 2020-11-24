@@ -273,30 +273,30 @@ limit bottlenecks.
 
 | User Story Tested | Result   | Ready     |
 | ----------------- | -------- | --------- |
-| User can access the landing page | Landing page loads correctly  the slider, video modal, gallery access.  Navbar shrinks responsively  |  Yes|
-| User can access the sample articles from the slider | NO  |  NO|
-| The page is restricted correctly for non-logged user access the sample articles | NO  |  NO|
-| User can access the about page without being logged in | Page displays withount error and consistently on mobile and desktop  |  Yes|
+| User can access the landing page | Landing page loads correctly  the slider, video modal, gallery access. Navbar shrinks responsively  | Yes |
+| User can access the sample articles from the slider | (Resolved)All visitor can access the free sampled articles from the carousel slider | Yes |
+| The page is restricted correctly for non-logged user access the sample articles | (Resolved)User is prompt to login | Yes |
+| User can access the about page without being logged in | Page displays withount error and consistently on mobile and desktop  | Yes |
 | User cannnot access the articles list without being logged in | When not logged in the user is prompter to login to access the full list of articles. Page displays without error and consistently on mobile and desktop  |  Yes|
-User clearly can see pricing page | The page loads with three price categories and if user click on add to cart leade to login page| Yes |
-User can load the pages for the login and signup | The login and signup pages load with no errors| Yes |
-Signup Page | The sing up page function correctly and sends a link to the verification email to listed email. Email is send in the console for the moment| Yes |
-Login Page| User can login successfully with valid username and password and the page shows a toast message for a successful login. |Yes|
-Sending Emails| No reset password email, no email verification sent | NO
+|User clearly can see pricing page | The page loads with three price categories and if user click on add to cart leade to login page| Yes |
+|User can load the pages for the login and signup | The login and signup pages load with no errors| Yes |
+|Signup Page | The sing up page function correctly and sends a link to the verification email to listed email. Email is send in the console for the moment| Yes |
+|Login Page| User can login successfully with valid username and password and the page shows a toast message for a successful login. |Yes|
+|Sending Emails| No reset password email, no email verification sent | NO |
 
 | Logged In User Story Tested |  Result| Ready |
 |--|--|--|
 | User can access the reports page when logged in | Reports page loads correctly the pagination active and displaying three articles per page both on mobile and desktop  |  Yes|
-Article List Page |  Eahc article card dispays responsively with thumbnail picture, date and author of the article plus title of the report | Yes
-Access to Article Detailed Page | User can either click on the image or the article title and will be taken to the article detail page | Yes |
-Article Detailed Page | the full article picture, date published with author info, and the entire text of the article |
+|Article List Page |  Eahc article card dispays responsively with thumbnail picture, date and author of the article plus title of the report | Yes
+|Access to Article Detailed Page | User can either click on the image or the article title and will be taken to the article detail page | Yes |
+|Article Detailed Page | the full article picture, date published with author info, and the entire text of the article |
 | User can access the pricing page | Pricing page loads without error and cuser can click on get it to proceed to checkout page |  Yes|
-Cart page | User can see the summary of the chosen subscription with option to proceeds to checkout and remove option available too |
-Remove the Subscription from the Cart | Partner can successfully remove the description before proceeding to checkout (NO BUTTON AVAILABLE TO GO BACK TO SUBSCRIPTIONS | Yes |
-Checkout Page | The checkout page loads without error with two colums. In the left column is purchase form details. In the right columns is the subscription summary | Yes |
-Checkout Page Purchase | User can fill out the the form to submit the payment. All fields are required. | Yes |  
-Charges Checkout Page | User can receive the price at three places in the checkout page. It dispays an alert message how much the credit card will be charged right next to the complete purchase button. User can return back and adjust the card too. | Yes |
-Checkout Success Page | After successfull payment the user is redirected to a Payment successfull page with summary of the purchase and the unique ID of the subscription. Confirmation email sent.| Yes |
+|Cart page | User can see the summary of the chosen subscription with option to proceeds to checkout and remove option available too |
+|Remove the Subscription from the Cart | Partner can successfully remove the description before proceeding to checkout (NO BUTTON AVAILABLE TO GO BACK TO SUBSCRIPTIONS | NO |
+|Checkout Page | The checkout page loads without error with two colums. In the left column is purchase form details. In the right columns is the subscription summary | Yes |
+|Checkout Page Purchase | User can fill out the the form to submit the payment. All fields are required. | Yes |  
+|Charges Checkout Page | User can receive the price at three places in the checkout page. It dispays an alert message how much the credit card will be charged right next to the complete purchase button. User can return back and adjust the card too. | Yes |
+|Checkout Success Page | After successfull payment the user is redirected to a Payment successfull page with summary of the purchase and the unique ID of the subscription. Confirmation email sent.| Yes |
 
 
 
