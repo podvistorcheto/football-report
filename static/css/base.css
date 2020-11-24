@@ -454,7 +454,7 @@ body {
     max-height: 340px;
 }
 
-/* if the screen size is 600px or less, set the font-size of <div> to 30px */
+/* queries for optimal mobile view */
 @media only screen and (max-width: 600px) {
   .display-3 {
     font-size: 36px;
@@ -475,6 +475,18 @@ body {
 
 @media only screen and (max-width: 600px) {
   .align {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 376px) {
+  .navbar-brand {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 321px) {
+  .navbar-brand {
     font-size: 18px;
   }
 }

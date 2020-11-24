@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-md-6 m-auto text-center">
           <h1>Publish Your Articles</h1>
-          <p>We would advise to prepare the title and content in advance and add it here when ready</p>
+          <p class="mobile">We would advise to prepare the title and content in advance and add it here when ready</p>
         </div>
       </div>
     </div>
@@ -22,7 +22,7 @@
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">We recommend picture sizes to be 1108x756</legend>
+                <p class="border-bottom mb-4">Recommended picture size 1100x760. We would advise please use desktop for better writting</p>
                 {{ form|crispy }}
                 {{ form.media }}
             </fieldset>
