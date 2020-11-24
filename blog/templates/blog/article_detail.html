@@ -1,45 +1,36 @@
 {% extends "base.html" %} {% block content %}
-<div class="container">
-
-    <div class="col-12 card">
-    <hr />
-        <div class="card-header"> <h2 class="text-bold" id="align"><p>{{ article.title }}</p></h2>
-    <img src="{{ article.article_image.url }}" class="img-fluid img-responsive" />
-    </div>
-    <div class="col-12 card-body">
-    <div class="col-6">
-    {% if user.is_authenticated %}
-      <img
-        class="author-img img-thumbnail rounded-circle mt-1"
-        src="{{ user.profile.image.url }}"
-      />
-    {% endif %}
-      <div class="row">
-          <p><small class="text-muted"
-            >Written by <strong>{{ article.author }}</strong> on <strong>{{ article.date_posted|date:"F d, Y" }}</strong></small
-          ></p>
-      </div>
-      </div>
-      <hr class="mt-1"/>
-      <p class="article-content">{{ article.content|safe }}</p>
-      {% if article.author == user.profile %}
-      <form method="post">
-            <div class="form-group">
-              {% csrf_token %}
-              <a
-                class="btn btn-secondary btn-sm mt-1 mb-1"
-                href="{% url 'article_update' object.id %}"
-                >Update</a
-              >
-              <a
-                class="btn btn-danger btn-sm mt-1 mb-1"
-                href="{% url 'article_confirm_delete' object.id %}"
-                >Delete</a
-              >
+<div class="container"> 
+<div class="card">
+              <img src="{{ article.article_image.url }}" alt="" class="img-fluid card-img-top">
+              <div class="card-body">
+                <h4 class="card-title">{{ article.title }}</h4>
+                {% if user.is_authenticated %}
+                    <img class="mobile author-img img-thumbnail rounded-circle ml-2" src="{{ user.profile.image.url }}"/>
+                {% endif %}
+                <small class="text-muted">Written by <strong>{{ article.author }}</strong> on <strong>{{ article.date_posted|date:"F d, Y" }}</strong></small>
+                <hr>
+                <p class="card-text">{{ article.content|safe }}
+                {% if article.author == user.profile %}
+                    <form method="post">
+                        <div class="form-group">
+                        {% csrf_token %}
+                        <a
+                            class="btn btn-secondary btn-sm mt-1 mb-1"
+                            href="{% url 'article_update' object.id %}"
+                            >Update</a
+                        >
+                        <a
+                            class="btn btn-danger btn-sm mt-1 mb-1"
+                            href="{% url 'article_confirm_delete' object.id %}"
+                            >Delete</a
+                        >
+                        </div>
+                    </form>
+                {% endif %}
+                </p>
+              </div>
             </div>
-          </form>
-        {% endif %}
-    </div>
 </div>
-</div>
+<hr>
+
 {% endblock %}

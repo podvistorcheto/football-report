@@ -407,9 +407,7 @@ body {
    column-span: all;
 }
 
-#align {
-    padding-left: 15px;
-    padding-right: 15px;
+.align {
     text-align: justify;
 }
 
@@ -472,5 +470,11 @@ body {
 @media only screen and (max-width: 600px) {
   #gallery {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .align {
+    font-size: 18px;
   }
 }

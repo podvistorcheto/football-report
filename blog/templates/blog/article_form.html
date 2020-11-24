@@ -22,7 +22,7 @@
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Article</legend>
+                <legend class="border-bottom mb-4">We recommend picture sizes to be 1108x756</legend>
                 {{ form|crispy }}
                 {{ form.media }}
             </fieldset>
