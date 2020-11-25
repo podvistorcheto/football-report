@@ -464,12 +464,25 @@ stick to best practices as much as possible.
 
 ## Deployment
 
-You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/). For example, this will produce a sequence diagram:
+1. GitHub repository
 
-    ~~~
-    mermaid
 
+2. Heroku deployment
+    
+    Run in Gitpod:
     ~~~
+    1. pip3 install dj_database_url
+    2. pip3 install psycopg2-binary
+    3. pip3 freeze > requirements.txt
+    ~~~
+    Then check the apps dj_database_url and psycopg2-binary in in in requirements.txt to make sure Heroku installs the list of apps when deploying.
+
+    in setings.py add:
+
+    ```import dj_database_url```
+
+3. AWS Amazon wev Services
+
 
 And this will produce a flow chart:
 
