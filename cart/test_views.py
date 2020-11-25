@@ -1,6 +1,5 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
-from profiles.models import Profile
 
 
 class CartViewTest(TestCase):
@@ -29,5 +28,3 @@ class AddToCartTestView(TestCase):
     def test_add_to_cart(self):
         response = self.client.get('/cart/')
         self.assertEqual(response.status_code, 302)
-
-

@@ -1,7 +1,6 @@
 from django.contrib import admin
 from .models import Subscription
 
-# Register your models here.
 
 class SubscriptionAdmin(admin.ModelAdmin):
     list_display = (
@@ -12,6 +11,6 @@ class SubscriptionAdmin(admin.ModelAdmin):
     )
 
     ordering = ('id',)
-    
-admin.site.register(Subscription, SubscriptionAdmin)
 
+
+admin.site.register(Subscription, SubscriptionAdmin)

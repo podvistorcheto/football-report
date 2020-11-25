@@ -1,6 +1,5 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
-from .models import Profile
 
 
 class ProfileAccessTests(TestCase):
@@ -14,7 +13,7 @@ class ProfileAccessTests(TestCase):
             'password': 'secret'}
         User.objects.create_user(**self.credentials)
         self.client.post('/accounts/login/', self.credentials, follow=True)
-    
+
     """
     testing load of pages in profiles app
     """

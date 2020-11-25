@@ -6,7 +6,6 @@ from django.views.generic import ListView
 from .models import Profile
 from checkout.models import Package, PackageLineItem
 from blog.models import Article
-from django.core.paginator import Paginator
 
 
 @login_required
@@ -28,5 +27,3 @@ def profile(request):
         'from_profile': True,
     }
     return render(request, template, context)
-
-

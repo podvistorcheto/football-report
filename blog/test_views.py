@@ -1,7 +1,5 @@
 from django.test import TestCase
 from .models import Article
-from django.contrib.auth.models import User
-from profiles.models import Profile
 
 
 # unit tests for views.py the blog app
@@ -12,12 +10,12 @@ class TestViewsBlog(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'blog/home.html')
 
-    def test_about(self): 
+    def test_about(self):
         response = self.client.get('/about')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'blog/about.html')
 
-    def test_subscribe(self): 
+    def test_subscribe(self):
         response = self.client.get('/subscribe')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'blog/subscribe.html')
