@@ -10,76 +10,73 @@
   </div>
 {% endblock %} {% block content %}
 <div class="container">
-<section class="py-3 about">
-    
-    
-    <div class="row">
-      <div class="col-12 col-lg-6">
-        <div class="card">
-            <div class="row">
-                <div class="col-md-6">
-                <img
+	<section class="py-3 about">
+		<div class="row">
+			<div class="col-12 col-lg-6">
+				<div class="card">
+					<div class="row">
+						<div class="col-md-6">
+							<img
                     class="account-img rounded-circle img-thumbnail"
                     src="{{ user.profile.image.url }}"
                     />
                 </div>
-                <div class="col-md-6">
-                    <h4 class="account-heading">{{ user.username }}</h4>
-                    <p class="text-secondary">{{ user.email }}</p>
-                
-                {% if user.is_authenticated and orders %}
-                            <form method="POST">
-                            {% csrf_token %}
-                                <div class="form-group">
-                                    <a class="btn btn-small btn-outline-success" href="{% url 'article_create' %}" aria-label="Publish">publish new article</a>
-                                </div> 
-                            </form>
-                        {% endif %}
-                </div>
-            </div>
-        
-        </div>
+							<div class="col-md-6">
+								<h4 class="account-heading">{{ user.username }}</h4>
+								<p class="text-secondary">{{ user.email }}</p>
 
-        <p class="text-muted logo-font">Published Articles</p>
-        {% for article in articles %}
-        <article class="media content-section">
-          
-          <div class="media-body">
-            <div class="article-metadata">
-              <small class="text-muted">{{ article.date_posted|date:"F d, Y"  }}</small>
-            </div>
-            <h2><a class="article-title text-dark" href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h2>
-          </div>
-        </article>
-        {% endfor %}
-      </div>
-      <div class="col-12 col-lg-6">
-        <p class="text-muted logo-font">Subscription History</p>
-        <table class="table table-sm table-borderless">
-                        <thead>
-                            <tr>
-                                <th>Order Number</th>
-                                <th>Start Date</th>
-                                <th>Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for order in orders %}
-                                <tr>
-                                    <td>
-                                    {{ order.order_number|truncatechars:10 }}
-                                    </td>
-                                    <td>{{ order.date }}</td>
-                                    <td>&euro;{{ order.price }}<hr></td>
-                                    
-                                </tr>
-                                
-                            {% endfor %}
-                        </tbody>
-                    </table>
-      </div>
-    </div>
-    </section>
-  </div>
+								{% if user.is_authenticated and orders %}
+								<form method="POST">
+									{% csrf_token %}
+									<div class="form-group">
+										<a class="btn btn-small btn-outline-success" href="{% url 'article_create' %}"
+											aria-label="Publish">publish new article</a>
+									</div>
+								</form>
+								{% endif %}
+							</div>
+						</div>
+					</div>
 
+					<p class="text-muted logo-font">Published Articles</p>
+					{% for article in articles %}
+					<article class="media content-section">
+						<div class="media-body">
+							<div class="article-metadata">
+								<small class="text-muted">{{ article.date_posted|date:"F d, Y"  }}</small>
+							</div>
+							<h2><a class="article-title text-dark"
+									href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h2>
+						</div>
+					</article>
+					{% endfor %}
+				</div>
+				<div class="col-12 col-lg-6">
+					<p class="text-muted logo-font">Subscription History</p>
+					<table class="table table-sm table-borderless">
+						<thead>
+							<tr>
+								<th>Order Number</th>
+								<th>Start Date</th>
+								<th>Price</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for order in orders %}
+							<tr>
+								<td>
+									{{ order.order_number|truncatechars:10 }}
+								</td>
+								<td>{{ order.date }}</td>
+								<td>&euro;{{ order.price }}
+									<hr>
+								</td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+	</section>
+</div>
 {% endblock %}

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block page_header %}
-  <div id="page-header">
+<div id="page-header">
     <div class="container">
       <div class="row">
         <div class="col-md-6 m-auto text-center">
@@ -10,14 +10,13 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
 {% endblock %}
 
 {% block content %}
 <div class="container mt-2 mb-5">    
         <div class="col">
-            {% for article in articles %}
-
+        {% for article in articles %}
             <div class="row">
                 <div class="col-md-4">
                     <a href="{% url 'article_detail' article.id %}"><img class="img-fluid" src="{{ article.article_image.url }}"/></a>
@@ -29,9 +28,9 @@
                     <h3><a class="ml-1 text-dark card-title" href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h3>
                 </div>
             </div>
-            </div>
-            <hr class="w-auto">
-            {% endfor %}
+        </div>
+        <hr class="w-auto">
+        {% endfor %}
         {% if is_paginated %}
             {% if page_obj.has_previous %}
                 <a class="btn btn-outline-dark mb-4" href="?page=1">First</a>
@@ -50,10 +49,8 @@
                 <a class="btn btn-outline-dark mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
             {% endif %}
         {% endif %}
-        </div>
-
     </div>
-  
+</div>
   
  
 {% endblock %}

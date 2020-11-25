@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block page_header %}
-    <header id="page-header">
+<header id="page-header">
     <div class="container">
       <div class="row">
         <div class="col-md-6 text-center mt-5">
@@ -11,39 +11,38 @@
         </div>
       </div>
     </div>
-    </header>
+</header>
 {% endblock %}
 
 {% block content %}
   <!-- PROCEED TO CHECKOUT SECTION -->
-  <div class="container">
-  <section class="about py-5">
-      <div class="row">
-      {% for item in cart_items %}
-        <div class="col-md-4">
-          <div class="card text-center">
-            <div class="card-header bg-dark text-white">
-              <h3>{{ item.subscription.name }}</h3>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">&euro;{{ item.subscription.price }}</h4>
-              {% if user.is_authenticated %}
-                    <a class="btn btn-success btn-block mt-2" href="{% url 'checkout' %}" title="Checkout">Proceed to checkout!</a>
-              {% else %}
-                    <a href="#" class="btn btn-danger btn-block mt-2">Add to Card (Log In)</a>
-              {% endif %}
-            </div>
-          </div>
-          <hr>
-          <span><a href="{% url 'remove_from_cart' item.id %}">
-                                    <i class="fa fa-times fa-2x" aria-hidden="true"></i></a> <small>Remove from
-                                        Cart</small>
-                                </span>
+<div class="container">
+    <section class="about py-5">
+        <div class="row">
+            {% for item in cart_items %}
+                <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-header bg-dark text-white">
+                    <h3>{{ item.subscription.name }}</h3>
+                    </div>
+                    <div class="card-body">
+                    <h4 class="card-title">&euro;{{ item.subscription.price }}</h4>
+                    {% if user.is_authenticated %}
+                            <a class="btn btn-success btn-block mt-2" href="{% url 'checkout' %}" title="Checkout">Proceed to checkout!</a>
+                    {% else %}
+                            <a href="#" class="btn btn-danger btn-block mt-2">Add to Card (Log In)</a>
+                    {% endif %}
+                    </div>
+                </div>
+                <hr>
+                <span><a href="{% url 'remove_from_cart' item.id %}">
+                                            <i class="fa fa-times fa-2x" aria-hidden="true"></i></a> <small>Remove from
+                                                Cart</small>
+                                        </span>
+                </div>
+            {% endfor %}
+            <a class="btn btn-small btn-info m-3" href="{% url 'subscription' %}" aria-label="Pricing">back to pricing</a>
         </div>
-       {% endfor %}
-       <a class="btn btn-small btn-info m-3" href="{% url 'subscription' %}" aria-label="Pricing">back to pricing</a>
-    </div>
     </section>
-    </div>
-  
+</div>
 {% endblock %}
