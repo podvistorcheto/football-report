@@ -9,8 +9,8 @@ By subscribing the user can  become an author by publishing an article with medi
 that help the founders of the website to maintain and host the service.
 
 <h1  align="center">
-<a  href="/documnets/desktop_demo.gif"  target="_blank"><img  src="/documents/desktop_demo.gif"  alt="TFR desktop"/></a>
-<a  href="/documnets/mobile_demo.gif"  target="_blank"><img  src="/documents/mobile_demo.gif"  alt="TFR mobile"/></a>
+<a  href="/documnets/desktop_demo.gif"  target="_blank"><img  src="/documents/desktop_demo.gif" width="420" height="240" alt="TFR desktop"/></a>
+<a  href="/documnets/mobile_demo.gif"  target="_blank"><img  src="/documents/mobile_demo.gif"  width="140" height="240" alt="TFR mobile"/></a>
 
 </h1>
 
