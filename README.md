@@ -32,7 +32,7 @@ The purpose of project is purely for educational usage although it provides read
 2.  [**Features**](#features)
 -  [**Existing Features**](#existing-features)
 -  [**Future Features**](#future-features)
-3.  [**Database Schema**](#database)
+3.  [**Database Schema**](#database
 4.  [**Technologies Used**](#technologies-used)
 5.  [**Testing**](#testing)
 6.  [**Credits**](#coding-notes)

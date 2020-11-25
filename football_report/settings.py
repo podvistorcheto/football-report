@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['the-football-project.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -125,16 +125,18 @@ WSGI_APPLICATION = 'football_report.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
- }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
-# DATABASES = {
-#    'default': dj_database_url.parse('postgres://hftlhonkpnroio:f245bbb17e275de49f8c3b26b67cfe07ad7751f9bae16ec5e9ba3faabbc36336@ec2-54-228-250-82.eu-west-1.compute.amazonaws.com:5432/daa45e722aqmof')
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
