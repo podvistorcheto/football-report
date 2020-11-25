@@ -1,9 +1,16 @@
-<br>
 # The Football Report
-This is website is part of the the Code Institute Full Stack Software Development course.. and is the final project of the course. It is the fourth project along the leaning curve and aimed to complete the course. The project represents a football newspaper site which allow page visitors to read a sample of free articles. If visitor register can have full access to the entire website articles. The next level of user experience an user subsription functionality which employ also the business logic of the project. By subscribing the user can  become an author by publishing an article with media. The subscription plan resembles a contribution that help the founders of the website to maintain and host the service.
+
+
+This is website is part of the the Code Institute Full Stack Software Development course.. and is the final project of the course. 
+It is the fourth project along the leaning curve and aimed to complete the course. The project represents a football newspaper 
+site which allow page visitors to read a sample of free articles. If visitor register can have full access to the entire website articles. 
+The next level of user experience an user subsription functionality which employ also the business logic of the project. 
+By subscribing the user can  become an author by publishing an article with media. The subscription plan resembles a contribution 
+that help the founders of the website to maintain and host the service.
 
 <h1  align="center">
 <a  href="/documnets/desktop_demo.gif"  target="_blank"><img  src="/documents/desktop_demo.gif"  alt="TFR desktop"/></a>
+<a  href="/documnets/mobile_demo.gif"  target="_blank"><img  src="/documents/mobile_demo.gif"  alt="TFR mobile"/></a>
 
 </h1>
 
@@ -28,7 +35,7 @@ The purpose of project is purely for educational usage although it provides read
 3.  [**Database Schema**](#database)
 4.  [**Technologies Used**](#technologies-used)
 5.  [**Testing**](#testing)
-6.  [**Coding Notes**](#coding-notes)
+6.  [**Credits**](#coding-notes)
 7.  [**Deployment**](#deployment)
 8.  [**Acknowledgements**](#acknowledgements)
 9.  [**Disclaimer**](#disclaimer)
@@ -212,6 +219,12 @@ To adopt and implemnt the features functuanalities this project employs Python, 
 -   [Google Fonts](https://fonts.google.com/)  to style the fonts.
     
 -   [Django](https://www.djangoproject.com/)  The website is build from the  **Django**  framework.
+
+-   Pillow 
+
+-   Django Crispy test_forms
+
+-   Django Allauth
     
 -   [SQLite](https://www.sqlite.org/)  comes as built in feature in the Django Framework. It is used during the development phase
     
@@ -316,6 +329,26 @@ Article Delete Confirmation | If user goes for the delete option there is confir
 Logout Page | User can choose to logout where is asked to confirm the sign out intention. If confirmed it redirects to the home page | Yes |
 
 
+### Testing the payment system
+
+#### Webhook Method
+
+The standard testing module is provided in the Stripe. A payment is successfully tested with the test credit details 4242 4242 4242 4242. An common scenario in submitting test_forms
+is error related to the internet connectivity disruption, accidentally closing the browser and other problems that may occur which might cause the form to crash. It a real world website
+may result in a processed payment but no order confirmation. Such events can be handler with method called 'webhook'. In short a webhook is aimed to adjust the way an web programme reacts to a specific event
+by adding tailored callback or a method that is called after previously executed function. This callback method monitors the data flow of the first function. 
+Thanks to the video tutorial for the Boutique Ado e-commerce website the Code Institute the risk of events might be mitigated via the code from ```webhook_handler.py```:
+
+#### Test:
+
+If comment out the form.submit(): functionality in the stripe.js means that the form does not submit. Such an event triggers the code in the ```webhook_handler.py``` to look for the order in the database. 
+In case the order is not there the it creates the order. 
+
+#### Result:
+
+Successfully saves the order if in such event. In addition even before commenting out the form.subit(); I experienced some internet outage after which the the payment and the order were saved successfully.
+
+
 
 ### Bugs & Workarounds
 
@@ -368,11 +401,64 @@ After the first end-to-end testing phase was drafted I identified several issues
     }
     ~~~
 
-4. Emails are sent successfully but only in the console not send outside Django
-4. Picture artice doesnot sync well with desktop screen unless is 1100x700
-5. Update and delete buttons are shown on every article detail view. Though there 
-    is specific funtion in the class base view which block user who is not-an author 
-    makes any changes to the page
+4. Emails are sent successfully but only in the console not sent outside Django. Near the deployment phase I tried to add the functionality
+    to send emails outside the console using gmail. After adding this feature I encountered an error which first prevented a user from receving 
+    positive and complete the signup. Page loaded with 405 error. Though the new user actually was added in admin panel, the Gitpod console show
+    the following error message.
+
+    <a  href="/documnets/gmailbug.png"  target="_blank"><img  src="/documents/gmailbug.png"  alt="dev_tools_one"/></a>
+    
+    When discussed with the tutors from Code Institute it seemed that the gmail block emails sent from the Gitpod and was advised to look into after 
+    deployment.
+    
+4. Picture artice doesnot sync well with desktop screen unless is 1100x700. To workaround this I change the design of the article page and made it more 
+    simple which made the picture to display on all devices. Furthermore I added a message that recommends the size of the picture upload. 
+    It is common practice for profession websites from industry. For example LinkedIn recommends picture sizes for the profile page of users. 
+    IN order not to disruput the user experience on this I inform about the default article aphoto feature which allows the author to publish 
+    the text with a default website picture. Authors may return later to update the picture with proper sizing.
+
+5. Update and delete buttons are shown on every article detail view no matter wheter the user is the author or not. Though the functionality is blocked 
+    for non-authors it makes the journey confusing. Hence I added additional ```if``` statement in the article_detail.html to restict the CRUD form:
+
+    ~~~
+    {% if article.author == user.profile %}
+        <form method="post">
+            <div class="form-group">
+            {% csrf_token %}
+                <a class="btn btn-secondary btn-sm mt-1 mb-1"
+                    href="{% url 'article_update' object.id %}">Update</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1"
+                    href="{% url 'article_confirm_delete' object.id %}">Delete</a>
+            </div>
+        </form>
+    {% endif %}
+    ~~~
+
+### Code Validators
+
+#### HTML
+
+The entire html code was tested with W3C Markup Validation Service. I used the weblinks to test each page as the validator has difficulties with the 
+jinja syntax used for the django templates. In home.html I removed frameborder="0" and the attribut type="text/javascript" from the javascript tag. 
+This validation helped me notice in the base.html my footer tag was outside the body which is not good practice.
+No other serious issues were found.
+
+#### CSS 
+
+Except for the warnings in the validation, no error found in the css code.
+
+<a  href="/documnets/csscheck.png"  target="_blank"><img  src="/documents/csscheck.png"  alt="dev_tools_one"/></a>
+
+#### JavaScript
+
+All pieces of javascript code were validate with Esprima and code is syntactically valid.
+
+#### Python
+
+When checking the code with PEP8 online mostly there were minor issues missing or unecessary whitespaces and no new lines at the end of file. I did made the code to
+stick to best practices as much as possible.
+
+
 
 
 
@@ -380,17 +466,10 @@ After the first end-to-end testing phase was drafted I identified several issues
 
 You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/). For example, this will produce a sequence diagram:
 
-```mermaid
-sequenceDiagram
-Alice ->> Bob: Hello Bob, how are you?
-Bob-->>John: How about you John?
-Bob--x Alice: I am good thanks!
-Bob-x John: I am good thanks!
-Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
+    ~~~
+    mermaid
 
-Bob-->Alice: Checking with John...
-Alice->John: Yes... John, how are you?
-```
+    ~~~
 
 And this will produce a flow chart:
 
@@ -404,10 +483,56 @@ C --> D
 
 ## Credits
 
-## Code
+### Code
 
-## Content and Media
+The idea about the project is inspired by my freelance hobby for writing about football and the passion about football. During the development process I followed the Code Institute video tutorials for the 
+[Boutique Ado](https://github.com/ckz8780/boutique_ado_v1) project develped by [ckz8780 Chris Z](https://github.com/ckz8780).
+I have to give credit to these lessons which helped me to develop the payment logic and system for The Football Project. In addition I took extra time to learn more 
+about how to develop with python and Django thanks to the video tutorials from [Corey Schaffer](https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g). 
+
+Through the entire process the Code Institute Slack community helped me with many bugs and obstacles I encountered. 
+Addintional thanks again to [ckz8780 Chris Z](https://github.com/ckz8780) who help out with his advice in the Code Institute Slack community.
+
+I want to express my gratitude to the tutors of Code Institute for help and guidance to find the right resolution.
+Thanks to their support I convincingly added value to my programming skills.
+
+The pagination for the page was developed with the help of [this tutorial article](https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html) 
+in [Simple is Better Than Complex](https://simpleisbetterthancomplex.com/).
+
+As mentioned above the Database Schema was created after reading this [advisory article](https://www.freecodecamp.org/news/how-to-create-database-schemas-quickly-and-intuitively-with-dbdesigner-2f4adf79a29d/) 
+at the [freeCodeCamp](https://www.freecodecamp.org/) website.
+
+The idea to implement to add the ckeditor5 ас rich text editor in the text field for publishing articles comes from this interesting video from [Codemy.com](https://www.youtube.com/watch?v=mF5jzSXb1dc&feature=emb_logo).
+
+The initial version of coding the [toast files](https://github.com/podvistorcheto/football-report/tree/master/templates/includes/toasts) was taken from [mdbootstrap.com](https://mdbootstrap.com/docs/jquery/javascript/notifications/). 
+I further restyled and modified their version of the code to achieve the customized design that suits my project.
+
+### Content & Media
+
+- All the titles and text content  fo the articles published for the project is written by myself. The text of the first artice 
+    'The Italian Paradox' is actually my first artcle published here in Bulgarian some years ago with some statistics updates added again by me. 
+    I also used the pictures from this same article to use them though the different articles.
+
+- I used [imgur.com](https://i.imgur.com/xjXTE9Z.jpg) for the picture under the overlay background. 
+
+- For the carousel [slider one](https://unsplash.com/photos/eVbwuIvaR5g) and [slide three](https://unsplash.com/photos/qawemGipVPk) I used [Unsplash](https://source.unsplash.com/). The source for the picture in slider two comes this [article](https://thesefootballtimes.co/2019/07/09/how-marcelo-bielsa-turned-athletic-club-into-one-of-europes-most-exciting-machines/).
+
+- The gallery at the home and the changing picture in the about page are taken and randomized from the simplified source again from [Unsplash](https://source.unsplash.com/).
+
+- [Default picture for the user profile](https://www.siciliaogginotizie.it/2020/01/21/e-partito-con-successo-il-progetto-safe/). 
+- [The article detail page default picture](https://www.saltwire.com/sports/local-soccer-players-training-in-bc-192267/).
+
+- For the video modal I used a link from the [Tifo Football Channel](https://www.youtube.com/c/TifoFootball/search?query=atalanta). Here is a direct [link](https://www.youtube.com/watch?v=M0fijoZOYbY) to the video itself.
 
 ## Acknowledgements
 
+I want to express my gratitude to Igor, Tim, Cormac, Michael, Johan, Samantha and all the tutors of Code Institute for help and guidance while debugging my code.
+Thanks to their support I convincingly added value to my programming skills.
+
+I am also thankful to my mentor Rahul and the folks from the Code Institute Slack community for the guidance and advise provided.
+
+In addition, I would like to thank to Code Institute Student Care for the constant support from day one. 
+
 ## Disclaimer
+
+This webisite is developed for educational usage only. The website does not process real payments.

@@ -61,7 +61,7 @@ class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def form_valid(self, form):
         author = Profile.objects.get(user=self.request.user)
-        
+
         form.instance.author = author
         return super().form_valid(form)
 
