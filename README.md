@@ -477,9 +477,20 @@ stick to best practices as much as possible.
     ~~~
     Then check the apps dj_database_url and psycopg2-binary in in in requirements.txt to make sure Heroku installs the list of apps when deploying.
 
+    fix the database issue
     in setings.py add:
 
     ```import dj_database_url```
+    
+    pip3 install gunicorn
+    Procfile 
+    heroku login -i or heroku login
+
+    heroku config:set DISABLE_COLLECTSTATIC=1
+
+    heroku git:remote -a the-football-project
+
+    in the heroku account -> Deploy -> connect to deploy to heroku via github
 
 3. AWS Amazon wev Services
 
