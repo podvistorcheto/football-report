@@ -32,7 +32,7 @@ The purpose of project is purely for educational usage although it provides read
 2.  [**Features**](#features)
 -  [**Existing Features**](#existing-features)
 -  [**Future Features**](#future-features)
-3.  [**Database Schema**](#database
+3.  [**Database Schema**](#database)
 4.  [**Technologies Used**](#technologies-used)
 5.  [**Testing**](#testing)
 6.  [**Credits**](#coding-notes)
@@ -132,7 +132,7 @@ Subcription Users:
 
 WIrefames serve as the blueprints of the website design. Wireframe are added 
 \thanks to [https://balsamiq.com/](https://balsamiq.com/) tool recommended by 
-the Code Institute. The blue prints and can be found in the [/documentation]() 
+the Code Institute. The blue prints and can be found in the [/documentation/wireframes](/documentation/wireframes/) 
 folder at []() . As I was changing the project and style idea much before I 
 choose this project all my blueprints were done on hand wiht pencil and paper 
 and added after the page was coming though. During the proframming the style 
@@ -242,6 +242,8 @@ To adopt and implemnt the features functuanalities this project employs Python, 
 
  ## Testing
 
+Please visit the file [TESTING.md](https://github.com/podvistorcheto/football-report/tree/master/documents/TESTING.md) in the documentation.
+
 The entire development process was had time contstraints and meeting deadlines. Hence I tested every new piece of code thourougly. 
 When the submission version I perform some automated unit test and then a performance test report with the lighthouse feature in devtools for chrome.
 
@@ -271,13 +273,13 @@ Unit Test
 The first report generated form the lighthouse tool showed some average results. After on each circle indicator the tool takes you
 to the several points that may be causing the reduced results. Here is the first test tesults
 
-<a  href="/documnets/lighthouse1.PNG"  target="_blank"><img  src="/documents/lighthouse1.PNG"  alt="dev_tools_one"/></a>
+<a  href="/documnets/lighthouse1.PNG"  target="_blank"><img  src="/documents/lighthouse1.PNG" width="420" height="240"  alt="dev_tools_one"/></a>
 
 Looking into the error I adjusted the width and height of the image in the info section of home.html. 
 The second step was to remove redundant some JavaScript code. After this I added missing aria-labels
 for all ```<button>``` tags. After this ended up with results which a bit better.
 
-<a  href="/documnets/lighthouse2.PNG"  target="_blank"><img  src="/documents/lighthouse2.PNG"  alt="dev_tools_one"/></a>
+<a  href="/documnets/lighthouse2.PNG"  target="_blank"><img  src="/documents/lighthouse2.PNG" width="420" height="240"  alt="dev_tools_one"/></a>
 
 While taking into the account the score in the performance indicator I didn't plan to proceed with refactoring further because
 the advice in the lighthouse tool indicated to remove the JQuery and some Stripe JavaScript code which is risky.
@@ -447,7 +449,7 @@ No other serious issues were found.
 
 Except for the warnings in the validation, no error found in the css code.
 
-<a  href="/documnets/csscheck.png"  target="_blank"><img  src="/documents/csscheck.png"  alt="dev_tools_one"/></a>
+<a  href="/documnets/csscheck.png"  target="_blank"><img  src="/documents/csscheck.png" height="80" alt="dev_tools_one"/></a>
 
 #### JavaScript
 
@@ -458,52 +460,156 @@ All pieces of javascript code were validate with Esprima and code is syntactical
 When checking the code with PEP8 online mostly there were minor issues missing or unecessary whitespaces and no new lines at the end of file. I did made the code to
 stick to best practices as much as possible.
 
+#### Note: Test Some Database issues
 
+When taking the next steps for deployement had to dump the data since I was not using fixtures. After advice from the tutors and in  Slack to this article 
+for [Django dumpdata and loaddata](https://coderwall.com/p/mvsoyg/django-dumpdata-and-loaddata) and run this command to dump the SQLite data in json file. 
+Hence should run:
+~~~
+python3 manage.py dumpdata --exclude auth.permission --exclude contenttypes > db.json
+~~~
+and then commit and push to heroku and run:
+~~~
+python3 manage.py loaddata db.json
+~~~
+Even advised that it will work it didn't probably beaucause I created new superuser for the new heroku postgress  which contradicted with the previous primary keys and got this error. 
+
+photo of the error in the console
+
+One of the tutors suggested to add dumpdata per app separatel and exclude the profile app, but I decided that It may lead to new obstacles. Therefore I manually created the database once again. I would suggest to watch out for this as it may take a lot of time and might lead to irreversibly lost data. 
 
 
 
 ## Deployment
 
-1. GitHub repository
+### Local Depoloyment  
 
 
-2. Heroku deployment
-    
-    Run in Gitpod:
+This project was programmed in the Gitpod integratred development environment (IDE). To start coding I used a  [Gitpod template](https://github.com/Code-Institute-Org/gitpod-full-template) provided by the [Code Institute](https://codeinstitute.net/).  and was deployed locally using Github repository.  All versions throughout the programmig phase were managed via the Github repository after each stage was completed. 
+
+The website is developed in version Python 3.8.6. If you want to clone this repository please make sure you have installed [Python](https://www.python.org/downloads/). To clone the repository please take these steps in your IDE: 
+
+1. Clone
+  ~~~
+    git clone https://github.com/podvistorcheto/football-report.git
     ~~~
-    1. pip3 install dj_database_url
-    2. pip3 install psycopg2-binary
-    3. pip3 freeze > requirements.txt
+
+For troubleshooting and additional reference more details are available in [GitHub Docs](https://docs.github.com/en) for [cloning a repository](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository.)
+
+2. Then you need to install the followings:
+  ~~~
+    pip3 install django
+    pip install django-allauth
+    pip3 install django-crispy-forms
+    pip3 install stripe
+    pyhton3 manage.py makemigrations
+    python3 manage.py migrate
     ~~~
-    Then check the apps dj_database_url and psycopg2-binary in in in requirements.txt to make sure Heroku installs the list of apps when deploying.
+3. To fully check the entire list of requirements you can also run:
+    ~~~
+    pip3 install -r requirements.txt
+    ~~~
+4. At the start make sure you remove the email setup from the setting.py to send emails in the console, hence set it up to only:
 
-    fix the database issue
-    in setings.py add:
+5. To run the admin panel you have to create a superuser
+    ~~~
+    python3 manage.py createsuperuser
+    ~~~
+6.  To check the webpage your local machine type in the console:
+    ~~~
+    pythnon3 manage.py runserver 
+    ~~~
 
-    ```import dj_database_url```
+7. Here is a link to find more details to the documentation on how to integrate [Stripe Payments](https://stripe.com/docs/payments/accept-a-payment#web-collect-card-details) in the website
+
+### Heroku deployment
+
+Before starting you will need  create [Heroku account](https://signup.heroku.com/) and create new app. A detailed explanation is available in [developer.mozilla.org](https://developer.mozilla.org/) what one must observe before prepering the website ready to publish  To follow the standard security protocol you must check:
+
+-   `DEBUG`. This should be set as  `False`  in production (`DEBUG = False`). It  prevents the critical security info and debug trace and variable information from being displayed.
+-   `SECRET_KEY` - Django recommends to store it in separate environment variable
+
+
+Under the app settings in Heroku click reveal to check and add the confivigurations variables there: 
+
+SECRET_KEY
+STRIPE_PUBLIC_KEY
+STRIPE_SECRET_KEY
+STRIPE_WH_SECRET 
+
+Required later for the AWS:
+USE_AWS `True`
+AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY
+
+After this you need to provide the heroku app with Postgres database as Heroku works with Postrgress which is different from SQLite used in the development. 
+ - Then run the following commands in the IDE console:
+
+    ~~~
+    pip3 install dj_database_url
+    pip3 install psycopg2-binary
+    pip3 freeze > requirements.txt
+    ~~~
+- in settings.py now needs an import:
+    ~~~
+    import dj_database_url
+    ~~~
+- to connect to the the new database in Heroku need to switch to new database default in settings.py
+    ~~~
+    DATABASES = { 'default' : dj_database_url.parse("type in your heroku database url here")
+    ~~~
+- then you need do make the migrations to the new database
+    ~~~
+    pyhton3 manage.py makemigrations
+    python3 manage.py migrate
+    python3 manage.py createsuperuser
+    ~~~
+Creating new superuser is required as the Django database is not the new Postgress database which has no taken any data from the SQLite database in Django. 
+DATABASE_URL is usually available in the settings of the newly created heroky app.
     
+```DATABASES = { 'default' : dj_database_url.parse(os.environ("DATABASE_URL")```
+    
+
+ - now must install gunicorn, which will play as webserver.
+    ~~~
     pip3 install gunicorn
-    Procfile 
-    heroku login -i or heroku login
+    ~~~ 
+- create a Procfile
+~~~
+   heroku login -i or heroku login
+~~~
+  - prevent collecting the static file for deployment to Heroku
+~~~
+heroku config:set DISABLE_COLLECTSTATIC=1 
+~~~
+- in setting.py have to add the heroku app website url to ALLOWED_HOSTS
+  
+Note that in the heroku app - >  Deploy -> needs to connect connect to deploy to heroku via github. Afther this need to initialise a heroku git remote
+~~~
+heroku git:remote -a <type in you heroku-app-name>
+git add .
+git commit -m "some commit"
+git push
+~~~
+- deploy the app with 
+~~~ 
+git push heroku master
+~~~
 
-    heroku config:set DISABLE_COLLECTSTATIC=1
+#### Sending emails outside the console in the real-world
 
-    heroku git:remote -a the-football-project
+As advised by the tutors I initialised the outside email service after completing the Heroku Deploymet. Here is an useful article to setup [Sending emails with Django](https://medium.com/@royprins/sending-emails-with-django-16f1c54529af) and configuring a SMTP backend. Note, do not commit your email and password to version control for security reasons but add their values in the configuration variables in Heroku instead. 
 
-    in the heroku account -> Deploy -> connect to deploy to heroku via github
+EMAIL_HOST_PASS
+EMAIL_HOST_USER
 
-3. AWS Amazon wev Services
+#### AWS Amazon Web Services
+
+AWS is cloud based service which is used to store the media and static files for the project. 
+To host the media and static files the project uses the [Amazon Simple Storage](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html), 
+more known as the S3  feature. [Usage of Amazon S3](https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html).
 
 
-And this will produce a flow chart:
-
-```mermaid
-graph LR
-A[Square Rect] -- Link text --> B((Circle))
-A --> C(Round Rect)
-B --> D{Rhombus}
-C --> D
-```
 
 ## Credits
 
@@ -545,7 +651,7 @@ I further restyled and modified their version of the code to achieve the customi
 
 - [Default picture for the user profile](https://www.siciliaogginotizie.it/2020/01/21/e-partito-con-successo-il-progetto-safe/). 
 - [The article detail page default picture](https://www.saltwire.com/sports/local-soccer-players-training-in-bc-192267/).
-
+- [Guardiola vs. Mourinho. The rivalry continues](https://www.planetfootball.com/quick-reads/jose-mourinho-and-pep-guardiolas-war-of-words-through-the-years/).
 - For the video modal I used a link from the [Tifo Football Channel](https://www.youtube.com/c/TifoFootball/search?query=atalanta). Here is a direct [link](https://www.youtube.com/watch?v=M0fijoZOYbY) to the video itself.
 
 ## Acknowledgements
