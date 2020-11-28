@@ -34,13 +34,13 @@ The first report generated form the lighthouse tool showed some average results.
 On each circle indicator this tool takes you to the several points that may be causing the reduced results. 
 Here is the first test tesults:
 
-<a  href="/lighthouse1.PNG"  target="_blank"><img  src="/lighthouse1.PNG" alt="lighthouse1"/></a>
+<a  href="/documents/lighthouse1.PNG"  target="_blank"><img  src="/documents/lighthouse1.PNG" alt="lighthouse1"/></a>
 
 Looking into the error I adjusted the width and height of the image in the info section of home.html. 
 The second step was to remove redundant JavaScript code. After this I added missing aria-labels
 for all ```<button>``` tags. After this ended up with results which are bit better.
 
-<a  href="/lighthouse2.PNG"  target="_blank"><img  src="/lighthouse2.PNG"  alt="lighthouse2"/></a>
+<a  href="/documents/lighthouse2.PNG"  target="_blank"><img  src="/documents/lighthouse2.PNG"  alt="lighthouse2"/></a>
 
 While taking into the account the score in the performance indicator I didn't plan to proceed with refactoring further because
 the advice under the lighthouse tool for performance indicated to remove the JQuery and some Stripe JavaScript code which is risky.
@@ -176,7 +176,7 @@ After the first end-to-end testing phase I identified several issues:
     positive outcome to complete the signup. The signup crashed and age loaded with 405 error. Though the new user actually was added in the admin panel, 
     the Gitpod console showed this 101 error message.
 
-    <a  href="/gmailbug.png"  target="_blank"><img  src="/gmailbug.png"  alt="dev_tools_one"/></a>
+    <a  href="/documents/gmailbug.png"  target="_blank"><img  src="/documents/gmailbug.png"  alt="error_one"/></a>
     
     When discussed with the tutors from Code Institute it seemed that the gmail blocks emails sent from the Gitpod environment and was advised 
     to look into after deployment to Heroku.
@@ -217,7 +217,7 @@ No other serious issues were found.
 
 Except for the warnings in the validation, no error found in the css code.
 
-<a  href="/csscheck.png"  target="_blank"><img  src="/csscheck.png" height="80" alt="dev_tools_one"/></a>
+<a  href="/documents/csscheck.png"  target="_blank"><img  src="/documents/csscheck.png" height="80" alt="csscheck"/></a>
 
 #### JavaScript
 
@@ -243,7 +243,7 @@ python3 manage.py loaddata db.json
 It didn't work, probably beaucause I created new superuser for the heroku postgres 
 which contradicted with the previous primary keys and got this error in the console 
 
-<a  href="/dbjson.PNG"  target="_blank"><img  src="/dbjson.PNG" height="100" alt="dbjson"/></a>
+<a  href="/documents/dbjson.PNG"  target="_blank"><img  src="/documents/dbjson.PNG" height="100" alt="dbjson"/></a>
 
 One of the tutors suggested to dumpdata per each app separately and exclude the profile app to workaround this bug. 
 I decided that it may lead to new obstacles and more time consuming. Therefore I manually created the database once again. 

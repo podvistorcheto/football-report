@@ -7,7 +7,7 @@ site which allows page visitors to read a sample of free articles. I have been i
 By visiting the website you will be introduced to a landing page with free sample of articels. If a user registers can have full access to the website articles. 
 The next level of user experience the user subsription functionality which employs the business and payment logic of the project. 
 By subscribing an user can become an author and publish an article with picture. The subscription plan resembles a contribution 
-that help the founders of the website to maintain and host the writing platform.
+that help the founders of the website to maintain and host the writing platform. The deployed version is available [here](https://the-football-project.herokuapp.com/). 
 
 <h1 align="center">
 <a  href="/documnets/desktop_demo.gif"  target="_blank"><img  src="/documents/desktop_demo.gif" width="420" height="240" alt="TFR desktop"/></a>
@@ -129,7 +129,7 @@ Subcription Users:
 
 Wirefames serve as the blueprints of the website design. Wireframe are added 
 thanks to [https://balsamiq.com/](https://balsamiq.com/) tool recommended by 
-the Code Institute. The blueprints are in the [documentation](https://github.com/podvistorcheto/football-report/tree/master/documents/wireframes). 
+the Code Institute. The blueprints are in the [documentation](https://github.com/podvistorcheto/football-report/tree/master/documents/wireframes)
 folder. Due to limited time available all my blueprints were done on a notebook or just on the go 
 and were added after the page was coming through. Some of the page desings were simplified 
 in the final design version to utilise space for better user interface on mobile.
@@ -242,7 +242,7 @@ auto-generated and can be used for additional data modeling if needed.
 
 ## Testing
 
-Please visit the file [TESTING.md](https://github.com/podvistorcheto/football-report/tree/master/documents/TESTING.md)
+Please visit the file [TESTING.md](https://github.com/podvistorcheto/football-report/blob/master/TESTING.md)
 in the documentation.
 
 ## Deployment
