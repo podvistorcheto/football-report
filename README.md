@@ -188,7 +188,7 @@ should be for such website types.
 During the development process the date is stored thanks to the Django builtin SQLite database. In the deployment phase the datebase will be 
 imported in Postrgres in Heroku.
 
-### Datebase Schema
+### Database Schema
 
 Here is my Database pattern. I created this schema thanks to 
 this [advisory article](https://www.freecodecamp.org/news/how-to-create-database-schemas-quickly-and-intuitively-with-dbdesigner-2f4adf79a29d/) I used  https://www.dbdesigner.net/ to generate more clear and visual presentation of the datebase logic. 
